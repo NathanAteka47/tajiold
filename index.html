@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taji Eats - Authentic Kenyan Cuisine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        :root {
+  --primary: #B02D28;       /* Deep, earthy red (from Taji Eats logo box) */
+  --secondary: #D96D24;     /* Darker, rich orange (for hovers or secondary accents) */
+  --accent: #F37E2F;        /* Vibrant orange (from "OPENING SOON" text & highlights) */
+  --light: #FDD894;         /* Soft golden yellow (for light accents & hovers) */
+  --background: #F9F5EC;    /* Warm creamy off-white (from menu backgrounds) */
+  --text-dark: #2A1A13;      /* Dark brown (from text like "EATS") */
+  --text-light: #FDFAF5;     /* Very light cream (for text on dark backgrounds) */
+}
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Poppins', sans-serif;
+          background-color: var(--background);
+          color: var(--text-dark);
+          line-height: 1.6;
+      }
+
+      h1, h2, h3, h4, h5 {
+          font-family: 'Playfair Display', serif;
+          color: var(--primary);
+      }
+
+      .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+          background-color: var(--primary);
+          color: white;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0;
+      }
+
+      .logo {
+          display: flex;
+          align-items: center;
+      }
+
+      .logo h1 {
+          font-size: 24px;
+          color: white;
+          margin-left: 10px;
+      }
+
+      .logo img {
+          height: 50px;
+          border-radius: 50%;
+          background-color: white;
+          padding: 5px;
+      }
+
+      nav ul {
+          display: flex;
+          list-style: none;
+      }
+
+      nav ul li {
+          margin-left: 25px;
+      }
+
+      nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+      }
+
+      nav ul li a:hover {
+          color: var(--light);
+      }
+
+      .btn {
+          display: inline-block;
+          background-color: var(--accent);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+          background-color: var(--secondary);
+          transform: translateY(-2px);
+      }
+
+      .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+          height: 600px;
+          background-size: cover;
+          background-position: center;
+          display: flex ;
+          align-items: center;
+          text-align: center;
+          color: white;
+      }
+
+      .hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .hero h1 {
+          font-size: 50px;
+          margin-top: 25px;
+          margin-bottom: 5px;
+          font-weight: 700;
+          color:rgb(184, 77, 5) ;
+      }
+
+      .hero p {
+          font-size: 20px;
+          margin-bottom: 10px;
+          color: #92400e;
+      }
+
+      .hero-btns {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+      }
+
+      .btn-secondary {
+          background-color: rgba(255, 145, 0, 0.74);
+          border: 2px solid rgb(253, 249, 249);
+      }
+
+      .btn-secondary:hover {
+          background-color: white;
+          color: var(--primary);
+      }
+
+      /* Section Styles */
+      section {
+          padding: 80px 0;
+      }
+
+      .section-title {
+          text-align: center;
+          margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+          font-size: 36px;
+          position: relative;
+          display: inline-block;
+          margin-bottom: 15px;
+      }
+
+      .section-title h2::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 3px;
+          background-color: var(--accent);
+      }
+
+      /* About Section */
+      .about-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: center;
+      }
+
+      .about-text h3 {
+          font-size: 28px;
+          margin-bottom: 20px;
+      }
+
+      .about-image {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      .features {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+          margin-top: 50px;
+      }
+
+      .feature {
+          text-align: center;
+          padding: 30px;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .feature:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature i {
+          font-size: 40px;
+          color: var(--accent);
+          margin-bottom: 20px;
+      }
+
+      .feature h4 {
+          font-size: 20px;
+          margin-bottom: 15px;
+      }
+
+      /* Menu Section */
+      .menu-tabs {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+      }
+
+      .tab-btn {
+          padding: 10px 20px;
+          background: none;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--text-dark);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-bottom: 2px solid transparent;
+      }
+
+      .tab-btn.active, .tab-btn:hover {
+          color: var(--accent);
+          border-bottom: 2px solid var(--accent);
+      }
+
+      .menu-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
+      }
+
+      .menu-item {
+          background-color: white;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .menu-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-image {
+          height: 200px;
+          overflow: hidden;
+      }
+
+      .menu-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .menu-item:hover .menu-image img {
+          transform: scale(1.1);
+      }
+
+      .menu-details {
+          padding: 20px;
+      }
+
+      .menu-details h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+      }
+
+      .menu-details p {
+          color: #666;
+          margin-bottom: 15px;
+          font-size: 14px;
+      }
+
+      .menu-price {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .price {
+          font-weight: 600;
+          color: var(--accent);
+          font-size: 20px;
+      }
+
+      /* Careers Section */
+      .careers-intro {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 40px;
+      }
+
+      .job-listings {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .job-card {
+          background-color: white;
+          border-radius: 10px;
+          padding: 25px;
+          margin-bottom: 20px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .job-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+          cursor: pointer;
+      }
+
+      .job-title {
+          font-size: 20px;
+          color: var(--primary);
+      }
+
+      .job-icon {
+          font-size: 20px;
+          transition: transform 0.3s ease;
+      }
+
+      .job-details {
+          display: none;
+          padding-top: 20px;
+          border-top: 1px solid #eee;
+      }
+
+      .job-card.active .job-details {
+          display: block;
+      }
+
+      .job-card.active .job-icon {
+          transform: rotate(180deg);
+      }
+
+      .requirements {
+          margin: 20px 0;
+      }
+
+      .requirements li {
+          margin-bottom: 8px;
+          margin-left: 20px;
+      }
+
+      .apply-info {
+          background-color: var(--background);
+          padding: 15px;
+          border-radius: 5px;
+          margin-top: 20px;
+      }
+
+      /* Contact Section */
+      .contact-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+      }
+
+      .contact-info {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-item {
+          display: flex;
+          margin-bottom: 25px;
+      }
+
+      .contact-icon {
+          font-size: 24px;
+          color: var(--accent);
+          margin-right: 15px;
+          min-width: 40px;
+      }
+
+      .contact-text h4 {
+          margin-bottom: 5px;
+      }
+
+      .hours {
+          background-color: var(--background);
+          padding: 15px;
+          border-radius: 5px;
+          margin-top: 20px;
+      }
+
+      .contact-form {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+          margin-bottom: 20px;
+      }
+
+      .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-family: 'Poppins', sans-serif;
+      }
+
+      .form-group textarea {
+          height: 150px;
+      }
+
+      .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+      }
+
+      /* Footer */
+      footer {
+          background-color: var(--primary);
+          color: white;
+          padding: 60px 0 30px;
+      }
+
+      .footer-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 40px;
+      }
+
+      .footer-col h3 {
+          color: white;
+          font-size: 20px;
+          margin-bottom: 20px;
+          position: relative;
+          padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--accent);
+      }
+
+      .footer-col p {
+          margin-bottom: 15px;
+      }
+
+      .footer-links li {
+          margin-bottom: 10px;
+      }
+
+      .footer-links a {
+          color: var(--light);
+          text-decoration: none;
+          transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+          color: white;
+          padding-left: 5px;
+      }
+
+      .social-links {
+          display: flex;
+          gap: 15px;
+      }
+
+      .social-links a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          color: white;
+          transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+          background-color: var(--accent);
+          transform: translateY(-3px);
+      }
+
+      .copyright {
+          text-align: center;
+          padding-top: 30px;
+          margin-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+          .footer-container {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .about-content,
+          .contact-container {
+              grid-template-columns: 1fr;
+          }
+
+          .features {
+              grid-template-columns: repeat(2, 1fr);
+          }
+      }
+
+      @media (max-width: 768px) {
+          .features {
+              grid-template-columns: 1fr;
+          }
+
+          .menu-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .form-row {
+              grid-template-columns: 1fr;
+          }
+
+          nav ul {
+              display: none;
+              position: absolute;
+              top: 70px;
+              left: 0;
+              width: 100%;
+              background-color: var(--primary);
+              flex-direction: column;
+              padding: 20px;
+          }
+
+          nav ul.show {
+              display: flex;
+          }
+
+          nav ul li {
+              margin: 10px 0;
+          }
+
+          .mobile-menu-btn {
+              display: block;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .hero h1 {
+              font-size: 36px;
+          }
+
+          .hero-btns {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .footer-container {
+              grid-template-columns: 1fr;
+          }
+      }
+         @media (max-width: 768px) {
+          .mobile-menu-btn {
+              display: block;
+          }
+
+          nav ul {
+              display: none;
+              position: absolute;
+              top: 80px;
+              left: 0;
+              width: 100%;
+              background-color: var(--primary);
+              flex-direction: column;
+              padding: 20px;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+
+          nav ul.show {
+              display: flex;
+          }
+
+          nav ul li {
+              margin: 10px 0;
+              text-align: center;
+          }
+
+          .hero h1 {
+              font-size: 2.2rem;
+          }
+
+          .hero p {
+              font-size: 1rem;
+          }
+
+          .section-title h2 {
+              font-size: 2rem;
+          }
+
+          .hero-btns {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .btn {
+              width: 100%;
+              display: block;
+          }
+      }
+       /* Gallery Styles */
+       .gallery-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .slider-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .slide {
+        flex: 0 0 100%;
+    }
+    
+    .slider-prev, .slider-next {
+        z-index: 10;
+    }
+    
+    .indicator.active {
+        background-color: var(--amber-600);
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.jpg" alt="EATS" />
+          </div>
+          <h1>Taji Eats, Maji na Taji, Keki na Taji</h1>
+        </div>
+
+        <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#order" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>Authentic Kenyan Cuisine</h1>
+        <p>Tradition Meets Modernity</p>
+        <div class="hero-btns">
+          <a href="#menu" class="btn">View Menu</a>
+          <a href="#reservations" class="btn btn-secondary">Book a Table</a>
+          <div>
+            <img src="./Resources/logo.jpg" alt="Taji Eats" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>Discover our story and passion for authentic Kenyan cuisine</p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Welcome to Taji Eats</h3>
+            <p>
+              Taji Eats is located along Nyerere road, adjacent to Taji House
+              opposite Makini School-Mamba area. It is an inviting open-air
+              restaurant serving authentic Kenyan cooked delicacies.
+            </p>
+            <p>
+              The heartwarming taste of traditional foods and relaxing music is
+              a haven for untold and rare Western Kenya tales and culture.
+            </p>
+            <p>
+              We let the flavours of heritage and home tell the story of your
+              delicious kienyeji journey.
+            </p>
+
+            <div class="features">
+              <div class="feature">
+                <i class="fas fa-utensils"></i>
+                <h4>Taji Eats</h4>
+                <p>Traditional recipes passed down through generations</p>
+              </div>
+
+              <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h4>Maji na Taji</h4>
+                <p>Top quality, fresh crystal clear water</p>
+              </div>
+
+              <div class="feature">
+                <i class="fas fa-music"></i>
+                <h4>Keki na Taji</h4>
+                <p>Well Baked and prepared to match the occasion</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image">
+            <div
+              style="
+                background-color: #d1c5b5;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary);
+                font-weight: bold;
+              "
+            >
+              <img src="./Resources/Gallery/2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" style="background-color: var(--background)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Menu</h2>
+          <p>Discover our authentic Kenyan dishes</p>
+        </div>
+
+        <div class="menu-tabs">
+          <button class="tab-btn active">All</button>
+          <button class="tab-btn">Breakfast</button>
+          <button class="tab-btn">Lunch</button>
+          <button class="tab-btn">Dinner</button>
+          <button class="tab-btn">Drinks</button>
+        </div>
+
+        <div class="menu-grid">
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        <img src="./Resources/Menuitems/njugukaranga&simsim.jpg" alt="">
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Njugu Karanga & Simsim</h3>
+      <p>Salted red ground nuts & simsim roasted on a clay pan.</p>
+      <div class="menu-price">
+        <span class="price">KSh 200</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        <img src="./Resources/Menuitems/njuguchemsha.jpg" alt="">
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Njugu Chemsha</h3>
+      <p>Freshly harvested ground nuts boiled with salt.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        <img src="./Resources/Menuitems/corn.jpg" alt="">
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Bando/Matuma Mateshe/Ebituma</h3>
+      <p>Boiled freshly harvested green corn.</p>
+      </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        <img src="./Resources/Menuitems/sweetpotatoes.jpg" alt="">
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Boiled sweet potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot</h3>
+      <p>A hearty combination of boiled sweet potatoes, wet fried beef, and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Nduma, Beef & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Boiled Nduma potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot</h3>
+      <p>A satisfying meal of boiled nduma (arrowroot) potatoes, wet fried beef, and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 550</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Toast, Sausages, Omelette & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Toasted bread + 2 sausages + pain omelette + Tea pot</h3>
+      <p>A delicious breakfast or light meal with toasted bread, sausages, a plain omelette, and tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 520</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Toast, Omelette & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Toasted bread + pain omelette + Tea pot</h3>
+      <p>Toasted bread served with a plain omelette and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 320</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Toast, Sausages & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Toasted bread + 2 sausages + Tea pot</h3>
+      <p>A simple classic: toasted bread, two sausages, and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 350</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Plain Bread, Sausages, Omelette & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain bread + 2 sausages + pain omelette + Tea pot</h3>
+      <p>Enjoy plain bread with two sausages, a plain omelette, and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Plain Bread, Omelette & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain bread + pain omelette + Tea pot</h3>
+      <p>Plain bread accompanied by a plain omelette and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 350</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Plain Bread, Sausages & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain bread + 2 sausages + Tea pot</h3>
+      <p>A serving of plain bread with two sausages and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Orange Soup & Ugali
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Orange Soup + Ugali</h3>
+      <p>A unique and flavorful orange soup served with ugali.</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Chapati, Beef Wet Fry & Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Chapati + Beef Wet Fry + Tea Pot</h3>
+      <p>Flaky chapati served with delicious beef wet fry and a pot of tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Plain Fries
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain French Fries</h3>
+      <p>Classic, crispy plain French fries.</p>
+      <div class="menu-price">
+        <span class="price">KSh 200</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Spiced Fries
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Spiced French Fries</h3>
+      <p>French fries tossed in a special blend of spices.</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Masala Fries
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Masala Fries</h3>
+      <p>Flavorful French fries cooked with a tangy and spicy masala sauce.</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Sausages, Fries & Salad
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>2 sausages with a little French fries & salad</h3>
+      <p>Two sausages served with a side of French fries and fresh salad.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Samosas, Fries & Salad
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>2 beef samosas with a little French fries & salad</h3>
+      <p>Two delicious beef samosas with a side of French fries and fresh salad.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Forest Cake Slice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Forest cake slice</h3>
+      <p>Choice of Whiteforest, Black forest, or Passion Forest cake slice frosted with whipped cream.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Choc/Red Velvet Cake
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Chocolate/Red Velvet Cake slice</h3>
+      <p>A delicious slice of either Chocolate or Red Velvet cake.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Vanilla/Orange/Lemon Cake
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Vanilla/orange/Lemon Cake slice</h3>
+      <p>A delightful slice of Vanilla, Orange, or Lemon cake.</p>
+      <div class="menu-price">
+        <span class="price">KSh 350</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Plain Keki (3pcs)
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain Keki Na Taji Cupcakes (3)</h3>
+      <p>Three plain Taji cupcakes, perfect for a light snack.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Frosted Keki (1pc)
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Frosted Keki Na Taji Cupcake (1)</h3>
+      <p>One delicious frosted Taji cupcake.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Mala
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Sour milk (mala)</h3>
+      <p>Refreshing traditional sour milk.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Mango Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Mango Juice</h3>
+      <p>Sweet and refreshing freshly squeezed mango juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Passion Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Passion Juice</h3>
+      <p>Tangy and aromatic fresh passion fruit juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Tamarind Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Tamarind Juice</h3>
+      <p>Unique sweet and sour fresh tamarind juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Beetroot Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Beetroot Juice</h3>
+      <p>Earthy and vibrant fresh beetroot juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Hibiscus Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Hibiscus Juice</h3>
+      <p>Tart and floral fresh hibiscus juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 200</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Mukombero Juice
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fresh Mukombero Juice</h3>
+      <p>Traditional fresh mukombero juice.</p>
+      <div class="menu-price">
+        <span class="price">KSh 300</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Water (500ml)
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Bottle water (500ml)</h3>
+      <p>Chilled bottled mineral water.</p>
+      <div class="menu-price">
+        <span class="price">KSh 70</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Water (1L)
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Bottle water (1 litre)</h3>
+      <p>Large chilled bottled mineral water.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Soda
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Soda</h3>
+      <p>Assorted carbonated soft drinks.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Sweet Red Wine
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Sweet Red Wine</h3>
+      <p>A glass of sweet red wine.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Dry White Wine
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Dry White Wine</h3>
+      <p>A glass of crisp dry white wine.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Grandma Chicken
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Grandma style chicken</h3>
+      <p>Tenderly done Kienyeji chicken cooked in a clay pot with a hint of munyu musherekha.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Panfried Kienyeji
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Panfried Kienyeji chicken</h3>
+      <p>Deliciously panfried Kienyeji (free-range) chicken.</p>
+      <div class="menu-price">
+        <span class="price">KSh 800</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Wet Fried Chicken
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Wet fried chicken</h3>
+      <p>Flavorful wet fried chicken, a local favorite.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Choma Chicken
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Choma chicken</h3>
+      <p>Grilled (choma) chicken with a smoky flavor.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Grandma Beef
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Grandma style Beef</h3>
+      <p>Tenderly done beef cooked in a clay pot with a hint of munyu musherekha.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Wet Fry Beef
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Wet Fry Beef</h3>
+      <p>Succulent beef cooked in a rich, savory wet fry sauce.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Panfried Beef
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Panfried Beef</h3>
+      <p>Simply delicious panfried beef.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Allya
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Allya</h3>
+      <p>Stewed sun-dried beef cooked with milk and Mnr Atenya.</p>
+      <div class="menu-price">
+        <span class="price">KSh 500</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Orange Beef
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Orange Flavored Beef Dish</h3>
+      <p>A unique beef dish with a hint of orange flavor.</p>
+      <div class="menu-price">
+        <span class="price">KSh 200</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Matumbo
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Matumbo</h3>
+      <p>Traditional tripe stew, cooked to perfection.</p>
+      <div class="menu-price">
+        <span class="price">KSh 350</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Nyoyo/Maenjela
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Nyoyo/Maenjela/Chinyoyo</h3>
+      <p>Mixed green maize, beans and luimbande (monkey nuts). Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Sweet Managu Plain
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Sweet Managu/Lisutsa/Osuga Plain</h3>
+      <p>Plain traditional managu greens. Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Pumpkin Leaves Plain
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Sebebe/Susa/Pumpkin Leaves Plain</h3>
+      <p>Plain traditional pumpkin leaves. Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+        Tender Saga Plain
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Tender saga/Tsisaka/Omonyenye Plain</h3>
+      <p>Plain assorted traditional Kenyan greens. Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Mrenda Plain
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Mrenda Plain</h3>
+      <p>Plain traditional jute mallow greens. Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Kunde Plain
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Kunde Plain</h3>
+      <p>Plain traditional cowpea leaves. Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Deep Fried Tilapia
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Deep Fried Tilapia</h3>
+      <p>Served with Kachumbari & Kienyeji vegetables in season. Choice of maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 750</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
+        Tilapia In Sauce
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Deep Fried Tilapia In Sauce</h3>
+      <p>Served with Kienyeji vegetables in season. Choice of maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 750</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
+        Stewed Sun Dried Tilapia
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Stewed Sun Dried Tilapia/Obambo/Shibambola</h3>
+      <p>Served with Kachumbari & Kienyeji vegetables. Choice of maize meal/ugali, rice, fries or chapati (millet meal/ugali KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Fried Omena
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fried Omena</h3>
+      <p>Served with Kachumbari & Kienyeji vegetables. Choice of maize meal/ugali, rice, fries or chapati (millet meal/ugali KSh 50 higher).</p>
+      <div class="menu-price">
+        <span class="price">KSh 250</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Managu
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Sweet Managu/Lisutsa/Osuga Plain</h3>
+      <p>A serving of pre-cooked traditional managu greens.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+   <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Pumpkin Leaves
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Sebebe/Susa/Pumpkin Leaves Plain</h3>
+      <p>A serving of pre-cooked traditional pumpkin leaves.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+   <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Tender Saga
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Tender saga/Tsisaka/Omonyenye Plain</h3>
+      <p>A serving of pre-cooked assorted traditional greens.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+   <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Mrenda
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Mrenda Plain</h3>
+      <p>A serving of pre-cooked traditional jute mallow greens.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+   <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Kunde
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Kunde Plain</h3>
+      <p>A serving of pre-cooked traditional cowpea leaves.</p>
+      <div class="menu-price">
+        <span class="price">KSh 400</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.8em; padding: 5px;">
+        Pre-cooked Mito
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Pre-cooked Mito Plain</h3>
+      <p>A serving of pre-cooked traditional mito greens.</p>
+      <div class="menu-price">
+        <span class="price">KSh 450</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Fermented Porridge
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Nyuka/Ezirongi/Obusuma (Fermented Porridge)</h3>
+      <p>Traditional fermented porridge, a wholesome start to your day.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
+        Porridge w/ Mukombero
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Fermented Porridge with Mukombero</h3>
+      <p>Traditional fermented porridge enhanced with mukombero.</p>
+      <div class="menu-price">
+        <span class="price">KSh 200</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        Chai ya Madhe
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Chai ya Madhe</h3>
+      <p>African tea brewed slowly in a pot on charcoal stove.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Strong Tea
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Strong tea</h3>
+      <p>A robust and flavorful cup of strong tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 70</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Hot Chocolate
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Hot Chocolate (with Milk)</h3>
+      <p>Rich and creamy hot chocolate made with milk.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        White Coffee
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>White Coffee</h3>
+      <p>A smooth and milky cup of white coffee.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
+        Boiled Sweet Potatoes
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain Boiled sweet potatoes (Rabwon/mapwoni)</h3>
+      <p>Simple and nutritious plain boiled sweet potatoes.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Boiled Nduma
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain Boiled Nduma</h3>
+      <p>Healthy plain boiled nduma (arrowroot).</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
+        Sausage & Fries
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Sausage (2 sausages with a little French fries)</h3>
+      <p>Two sausages served with a small portion of French fries.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Plain Omelette
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain omelette</h3>
+      <p>A classic plain omelette, perfectly cooked.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+        French Omelette
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>French omelette</h3>
+      <p>A light and fluffy French style omelette.</p>
+      <div class="menu-price">
+        <span class="price">KSh 150</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #c9b18a; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Plain Chapati
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Plain Chapati</h3>
+      <p>Soft and flaky plain chapati.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="menu-image">
+      <div style="background-color: #a67c52; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+        Mandazi
+      </div>
+    </div>
+    <div class="menu-details">
+      <h3>Mandazi</h3>
+      <p>Traditional Kenyan sweet fried dough, perfect with tea.</p>
+      <div class="menu-price">
+        <span class="price">KSh 100</span>
+        <button class="btn">Add to Order</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+      
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers">
+      <div class="container">
+        <div class="section-title">
+          <h2>Join Our Team</h2>
+          <p>Exciting career opportunities at Taji Eats</p>
+        </div>
+
+        <div class="careers-intro">
+          <p>
+            Taji Eats is expanding and we're looking for passionate individuals
+            to join our team. We're currently hiring for various positions in
+            our Bungoma location.
+          </p>
+        </div>
+
+        <div class="job-listings">
+          <!-- Job 1 -->
+          <div class="job-card">
+            <div class="job-header">
+              <h3 class="job-title">Restaurant Manager</h3>
+              <span class="job-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="job-details">
+              <h4>Requirements:</h4>
+              <ul class="requirements">
+                <li>
+                  At least a College Diploma/Bachelor's Degree in Business
+                  Studies/Administration, Management, Marketing, Food & Beverage
+                  Services Management or equivalent.
+                </li>
+                <li>
+                  Preferably with at least 3 years of Manager specialization in
+                  food and beverages, restaurant service or equivalent is
+                  required
+                </li>
+                <li>Proficient in using MS Office applications</li>
+                <li>
+                  Customer service oriented with strong people management skills
+                </li>
+                <li>Good communication skills and leadership capability</li>
+                <li>
+                  Has worked on marketing related projects or possess good
+                  marketing skills
+                </li>
+                <li>
+                  Knowledge on social media marketing is an added advantage
+                </li>
+              </ul>
+              <div class="apply-info">
+                <p>
+                  To apply, send your application to
+                  <strong>hr@tajiwater.com</strong> by
+                  <strong>SUNDAY 15TH JUNE 2025</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job-card">
+            <div class="job-header">
+              <h3 class="job-title">Chef</h3>
+              <span class="job-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="job-details">
+              <h4>Requirements:</h4>
+              <ul class="requirements">
+                <li>
+                  Diploma in culinary arts, hospitality management or
+                  professional cookery
+                </li>
+                <li>
+                  At least 2 years in experience in working in a busy
+                  restaurant.
+                </li>
+                <li>
+                  Experience working with traditional Kenyan cuisines will be an
+                  added advantage
+                </li>
+                <li>Ability to track expenses and manage inventory/stock</li>
+                <li>Strong passion for the art of food design</li>
+                <li>Ability to lead and inspire team</li>
+              </ul>
+              <div class="apply-info">
+                <p>
+                  To apply, send your application to
+                  <strong>hr@tajiwater.com</strong> by
+                  <strong>SUNDAY 15TH JUNE 2025</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job-card">
+            <div class="job-header">
+              <h3 class="job-title">Waiter/Waitress</h3>
+              <span class="job-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="job-details">
+              <h4>Requirements:</h4>
+              <ul class="requirements">
+                <li>
+                  Vocational Diploma in Food Beverage Services Management or
+                  equivalent
+                </li>
+                <li>
+                  A minimum of six (6) months of working experience in a food,
+                  beverages, food preparation and customer service industry
+                </li>
+                <li>
+                  Strong knowledge about proper food handling and practice of
+                  food sanitation
+                </li>
+                <li>Flexibility and comfortable with working busy shifts</li>
+                <li>Fast learner and team player</li>
+              </ul>
+              <div class="apply-info">
+                <p>
+                  To apply, send your application to
+                  <strong>hr@tajiwater.com</strong> by
+                  <strong>SUNDAY 15TH JUNE 2025</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+<section id="gallery" class="py-16 bg-amber-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4">Our Restaurant Gallery</h2>
+            <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
+            <p class="mt-4 max-w-2xl mx-auto">Take a visual journey through our restaurant, dishes, and atmosphere</p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Gallery Slider -->
+            <div class="gallery-slider overflow-hidden rounded-xl shadow-xl">
+                <div class="slider-track flex transition-transform duration-500 ease-in-out">
+                    <!-- Slide 1 -->
+                    <div class="slide min-w-full">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-amber-700 font-bold">
+                            <img src="./Resources/Gallery/1.jpg" alt="Team image">
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide min-w-full">
+                        <div class="bg-amber-100 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-amber-700 font-bold">
+                            <img src="./Resources/Gallery/2.jpg" alt="Restaurant Image">
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide min-w-full">
+                        <div class="bg-yellow-100 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-amber-700 font-bold">
+                            <img src="./Resources/Gallery/3.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide min-w-full">
+                        <div class="bg-orange-100 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center text-amber-700 font-bold">
+                            <img src="./Resources/Gallery/4.jpg" alt="">
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <button class="slider-prev absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-amber-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-amber-700 transition-colors">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-next absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-amber-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-amber-700 transition-colors">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Slide Indicators -->
+            <div class="flex justify-center mt-6 space-x-2">
+                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
+                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: var(--background)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>We'd love to hear from you</p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Get In Touch</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Address</h4>
+                <p>
+                  Nyerere Road, Adjacent to Taji House, Opposite Makini School,
+                  Bungoma
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <p>0713195195</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>hr@tajiwater.com</p>
+              </div>
+            </div>
+
+            <div class="hours">
+              <h4>Opening Hours</h4>
+              <p>24 hours, 7 days a week</p>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" required></textarea>
+              </div>
+
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Taji Eats</h3>
+            <p>Tradition Meets Modernity</p>
+            <p>
+              Serving authentic Kenyan cuisine with a modern twist since 2023.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Opening Hours</h3>
+            <p>Monday - Sunday: 24 hours</p>
+            <p>Open all holidays</p>
+            <p>Reservations recommended for groups of 6+</p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for special offers and updates.</p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required />
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2023 Taji Eats. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.querySelector("nav ul").classList.toggle("show");
+        });
+
+      // Job listings accordion
+      const jobCards = document.querySelectorAll(".job-card");
+      jobCards.forEach((card) => {
+        card.querySelector(".job-header").addEventListener("click", () => {
+          card.classList.toggle("active");
+        });
+      });
+
+      // Tab functionality
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active class from all buttons
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          // Add active class to clicked button
+          btn.classList.add("active");
+        });
+      });
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for your message! We will get back to you soon.");
+          this.reset();
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            document.querySelector("nav ul").classList.remove("show");
+          }
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        
+        // Update slide position
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('bg-amber-600');
+                    indicator.classList.remove('bg-amber-300');
+                } else {
+                    indicator.classList.remove('bg-amber-600');
+                    indicator.classList.add('bg-amber-300');
+                }
+            });
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+        
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+        
+        // Auto-advance every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Initialize slider
+        updateSlider();
+    });
+    </script>
+  </body>
+</html>
