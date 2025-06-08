@@ -1,0 +1,744 @@
+
+        :root {
+  --primary: #B02D28;       /* Deep, earthy red (from Taji Eats logo box) */
+  --secondary: #D96D24;     /* Darker, rich orange (for hovers or secondary accents) */
+  --accent: #F37E2F;        /* Vibrant orange (from "OPENING SOON" text & highlights) */
+  --light: #FDD894;         /* Soft golden yellow (for light accents & hovers) */
+  --background: #F9F5EC;    /* Warm creamy off-white (from menu backgrounds) */
+  --text-dark: #2A1A13;      /* Dark brown (from text like "EATS") */
+  --text-light: #FDFAF5;     /* Very light cream (for text on dark backgrounds) */
+}
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Poppins', sans-serif;
+          background-color: var(--background);
+          color: var(--text-dark);
+          line-height: 1.6;
+      }
+
+      h1, h2, h3, h4, h5 {
+          font-family: 'Playfair Display', serif;
+          color: var(--primary);
+      }
+
+      .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+          background-color: var(--primary);
+          color: white;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0;
+      }
+
+      .logo {
+          display: flex;
+          align-items: center;
+      }
+
+      .logo h1 {
+          font-size: 24px;
+          color: white;
+          margin-left: 10px;
+      }
+
+      .logo img {
+          height: 50px;
+          border-radius: 50%;
+          background-color: white;
+          padding: 5px;
+      }
+
+      nav ul {
+          display: flex;
+          list-style: none;
+      }
+
+      nav ul li {
+          margin-left: 25px;
+      }
+
+      nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+      }
+
+      nav ul li a:hover {
+          color: var(--light);
+      }
+
+      .btn {
+          display: inline-block;
+          background-color: var(--accent);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+          background-color: var(--secondary);
+          transform: translateY(-2px);
+      }
+
+      .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+          height: 600px;
+          background-size: cover;
+          background-position: center;
+          display: flex ;
+          align-items: center;
+          text-align: center;
+          color: white;
+      }
+
+      .hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .hero h1 {
+          font-size: 50px;
+          margin-top: 25px;
+          margin-bottom: 5px;
+          font-weight: 700;
+          color:rgb(184, 77, 5) ;
+      }
+
+      .hero p {
+          font-size: 20px;
+          margin-bottom: 10px;
+          color: #92400e;
+      }
+
+      .hero-btns {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+      }
+
+      .btn-secondary {
+          background-color: rgba(255, 145, 0, 0.74);
+          border: 2px solid rgb(253, 249, 249);
+      }
+
+      .btn-secondary:hover {
+          background-color: white;
+          color: var(--primary);
+      }
+
+      /* Section Styles */
+      section {
+          padding: 80px 0;
+      }
+
+      .section-title {
+          text-align: center;
+          margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+          font-size: 36px;
+          position: relative;
+          display: inline-block;
+          margin-bottom: 15px;
+      }
+
+      .section-title h2::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 3px;
+          background-color: var(--accent);
+      }
+
+      /* About Section */
+      .about-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: center;
+      }
+
+      .about-text h3 {
+          font-size: 28px;
+          margin-bottom: 20px;
+      }
+
+      .about-image {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      .features {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+          margin-top: 50px;
+      }
+
+      .feature {
+          text-align: center;
+          padding: 30px;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .feature:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature i {
+          font-size: 40px;
+          color: var(--accent);
+          margin-bottom: 20px;
+      }
+
+      .feature h4 {
+          font-size: 20px;
+          margin-bottom: 15px;
+      }
+
+      /* Menu Section */
+      .menu-tabs {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
+      }
+
+      .tab-btn {
+          padding: 10px 20px;
+          background: none;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--text-dark);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-bottom: 2px solid transparent;
+      }
+
+      .tab-btn.active, .tab-btn:hover {
+          color: var(--accent);
+          border-bottom: 2px solid var(--accent);
+      }
+
+      .menu-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
+      }
+
+      .menu-item {
+          background-color: white;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .menu-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-image {
+          height: 200px;
+          overflow: hidden;
+      }
+
+      .menu-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .menu-item:hover .menu-image img {
+          transform: scale(1.1);
+      }
+
+      .menu-details {
+          padding: 20px;
+      }
+
+      .menu-details h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+      }
+
+      .menu-details p {
+          color: #666;
+          margin-bottom: 15px;
+          font-size: 14px;
+      }
+
+      .menu-price {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .price {
+          font-weight: 600;
+          color: var(--accent);
+          font-size: 20px;
+      }
+
+      /* Careers Section */
+      .careers-intro {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 40px;
+      }
+
+      .job-listings {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .job-card {
+          background-color: white;
+          border-radius: 10px;
+          padding: 25px;
+          margin-bottom: 20px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .job-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+          cursor: pointer;
+      }
+
+      .job-title {
+          font-size: 20px;
+          color: var(--primary);
+      }
+
+      .job-icon {
+          font-size: 20px;
+          transition: transform 0.3s ease;
+      }
+
+      .job-details {
+          display: none;
+          padding-top: 20px;
+          border-top: 1px solid #eee;
+      }
+
+      .job-card.active .job-details {
+          display: block;
+      }
+
+      .job-card.active .job-icon {
+          transform: rotate(180deg);
+      }
+
+      .requirements {
+          margin: 20px 0;
+      }
+
+      .requirements li {
+          margin-bottom: 8px;
+          margin-left: 20px;
+      }
+
+      .apply-info {
+          background-color: var(--background);
+          padding: 15px;
+          border-radius: 5px;
+          margin-top: 20px;
+      }
+
+      /* Contact Section */
+      .contact-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+      }
+
+      .contact-info {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-item {
+          display: flex;
+          margin-bottom: 25px;
+      }
+
+      .contact-icon {
+          font-size: 24px;
+          color: var(--accent);
+          margin-right: 15px;
+          min-width: 40px;
+      }
+
+      .contact-text h4 {
+          margin-bottom: 5px;
+      }
+
+      .hours {
+          background-color: var(--background);
+          padding: 15px;
+          border-radius: 5px;
+          margin-top: 20px;
+      }
+
+      .contact-form {
+          background-color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+          margin-bottom: 20px;
+      }
+
+      .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-family: 'Poppins', sans-serif;
+      }
+
+      .form-group textarea {
+          height: 150px;
+      }
+
+      .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+      }
+
+      /* Footer */
+      footer {
+          background-color: var(--primary);
+          color: white;
+          padding: 60px 0 30px;
+      }
+
+      .footer-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 40px;
+      }
+
+      .footer-col h3 {
+          color: white;
+          font-size: 20px;
+          margin-bottom: 20px;
+          position: relative;
+          padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background-color: var(--accent);
+      }
+
+      .footer-col p {
+          margin-bottom: 15px;
+      }
+
+      .footer-links li {
+          margin-bottom: 10px;
+      }
+
+      .footer-links a {
+          color: var(--light);
+          text-decoration: none;
+          transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+          color: white;
+          padding-left: 5px;
+      }
+
+      .social-links {
+          display: flex;
+          gap: 15px;
+      }
+
+      .social-links a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          color: white;
+          transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+          background-color: var(--accent);
+          transform: translateY(-3px);
+      }
+
+      .copyright {
+          text-align: center;
+          padding-top: 30px;
+          margin-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+          .footer-container {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .about-content,
+          .contact-container {
+              grid-template-columns: 1fr;
+          }
+
+          .features {
+              grid-template-columns: repeat(2, 1fr);
+          }
+      }
+
+      @media (max-width: 768px) {
+          .features {
+              grid-template-columns: 1fr;
+          }
+
+          .menu-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .form-row {
+              grid-template-columns: 1fr;
+          }
+
+          nav ul {
+              display: none;
+              position: absolute;
+              top: 70px;
+              left: 0;
+              width: 100%;
+              background-color: var(--primary);
+              flex-direction: column;
+              padding: 20px;
+          }
+
+          nav ul.show {
+              display: flex;
+          }
+
+          nav ul li {
+              margin: 10px 0;
+          }
+
+          .mobile-menu-btn {
+              display: block;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .hero h1 {
+              font-size: 36px;
+          }
+
+          .hero-btns {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .footer-container {
+              grid-template-columns: 1fr;
+          }
+      }
+         @media (max-width: 768px) {
+          .mobile-menu-btn {
+              display: block;
+          }
+
+          nav ul {
+              display: none;
+              position: absolute;
+              top: 80px;
+              left: 0;
+              width: 100%;
+              background-color: var(--primary);
+              flex-direction: column;
+              padding: 20px;
+              box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+
+          nav ul.show {
+              display: flex;
+          }
+
+          nav ul li {
+              margin: 10px 0;
+              text-align: center;
+          }
+
+          .hero h1 {
+              font-size: 2.2rem;
+          }
+
+          .hero p {
+              font-size: 1rem;
+          }
+
+          .section-title h2 {
+              font-size: 2rem;
+          }
+
+          .hero-btns {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .btn {
+              width: 100%;
+              display: block;
+          }
+      }
+       /* Gallery Styles */
+       .gallery-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .slider-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .slide {
+        flex: 0 0 100%;
+    }
+    
+    .slider-prev, .slider-next {
+        z-index: 10;
+    }
+    
+    .indicator.active {
+        background-color: var(--amber-600);
+    }
+    
+
+    /* menu button styles */
+    .menu-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.tab-btn {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn span {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+/* Replace the URLs with your actual images */
+.meal-tab {
+  background-image: url('./Resources/Menuitems/1.jpg');
+}
+.cake-tab {
+  background-image: url('./Resources/Cakes/3.jpg');
+}
+.water-tab {
+  background-image: url('./Resources/Water/1.jpg');
+}
+
+
+/* About us three cards */
