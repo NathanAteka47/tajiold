@@ -1,6 +1,6 @@
 
         :root {
-  --primary: #B02D28;       /* Deep, earthy red (from Taji Eats logo box) */
+  --primary: #1f2da3;       /* Deep, earthy red (from Taji Eats logo box) */
   --secondary: #D96D24;     /* Darker, rich orange (for hovers or secondary accents) */
   --accent: #F37E2F;        /* Vibrant orange (from "OPENING SOON" text & highlights) */
   --light: #FDD894;         /* Soft golden yellow (for light accents & hovers) */
@@ -728,20 +728,3 @@
   bottom: 16px;
   left: 16px;
 }
-
-/* Replace the URLs with your actual images */
-.meal-tab {
-  background-image: url('./Resources/Menuitems/1.jpg');
-}
-.drinks-tab {
-  background-image: url('./Resources/Drinks/1.jpg');
-}
-.cake-tab {
-  background-image: url('./Resources/Cakes/3.jpg');
-}
-.water-tab {
-  background-image: url('./Resources/Water/1.jpg');
-}
-
-
-/* About us three cards */
