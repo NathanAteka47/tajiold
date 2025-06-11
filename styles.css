@@ -730,11 +730,32 @@
 }
 
 /* Replace the URLs with your actual images */
-.meal-tab {
-  background-image: url('./Resources/Menuitems/1.jpg');
+.snacks-tab {
+  background-image: url('./Resources/Menuitems/9.jpg');
+}
+.chicken-tab {
+  background-image: url('./Resources/Gallery/21.jpg');
+}
+.beef-tab {
+  background-image: url('./Resources/Menuitems/3.jpg');
+}
+.veggie-tab {
+  background-image: url('./Resources/Menuitems/10.jpg');
+}
+.fishy-tab {
+  background-image: url('./Resources/Menuitems/7.jpg');
+}
+.beverages-tab {
+  background-image: url('./Resources/Menuitems/5.jpg');
+}
+.accompaniments-tab {
+  background-image: url('./Resources/Gallery/20.jpg');
+}
+.breakfast-tab {
+  background-image: url('./Resources/Gallery/13.jpg');
 }
 .drinks-tab {
-  background-image: url('./Resources/Drinks/1.jpg');
+  background-image: url('./Resources/Gallery/17.jpg');
 }
 .cake-tab {
   background-image: url('./Resources/Cakes/3.jpg');
@@ -742,6 +763,6 @@
 .water-tab {
   background-image: url('./Resources/Water/1.jpg');
 }
-
-
-/* About us three cards */
+.fries-tab {
+  background-image: url('./Resources/Menuitems/2.jpg');
+}

@@ -33,7 +33,7 @@
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#menu">Menu</a></li>
             <li><a href="#careers">Join Our Team</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -82,7 +82,7 @@
 
             <div class="features">
 
-              <a href="menu.html">
+              <a href="accompaniments.html">
                 <div class="feature">
                 <i class="fas fa-utensils" ></i>
                 <h4>Taji Eats</h4>
@@ -137,8 +137,32 @@
         </div>
 
 <div class="menu-tabs">
-  <button class="tab-btn meal-tab" onclick="window.location.href='menu.html#meals'">
-    <span>Meals</span>
+  <button class="tab-btn snacks-tab" onclick="window.location.href='snacks.html'">
+    <span>Snacks To Nibble</span>
+  </button>
+  <button class="tab-btn chicken-tab" onclick="window.location.href='chicken.html'">
+    <span>Chicken Meals</span>
+  </button>
+  <button class="tab-btn beef-tab" onclick="window.location.href='beef.html'">
+    <span>Beef Variety</span>
+  </button>
+  <button class="tab-btn fries-tab" onclick="window.location.href='fries.html'">
+    <span>Fries Options</span>
+  </button>
+  <button class="tab-btn veggie-tab" onclick="window.location.href='veggie.html'">
+    <span>Veggie Options</span>
+  </button>
+    <button class="tab-btn fishy-tab" onclick="window.location.href='fishy.html'">
+    <span>Fishy Goddes</span>
+  </button>
+  <button class="tab-btn beverages-tab" onclick="window.location.href='beverages.html'">
+    <span>Beverages</span>
+  </button>
+  <button class="tab-btn accompaniments-tab" onclick="window.location.href='accompaniments.html'">
+    <span>Accompaniments</span>
+  </button>
+  <button class="tab-btn breakfast-tab" onclick="window.location.href='breakfast.html'">
+    <span>Breakfast Combinations</span>
   </button>
     <button class="tab-btn drinks-tab" onclick="window.location.href='drinks.html'">
     <span>Juice, Tea&Coffee, Wine, Soda and Porrige</span>
@@ -424,13 +448,13 @@
             </button>
             
             <!-- Slide Indicators -->
-            <div class="flex justify-center mt-6 space-x-2">
-                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
-                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
-                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
-                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
-                <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors"></button>
-            </div>
+<div class="flex justify-center mt-6 space-x-2">
+  <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors" data-slide-to="0"></button>
+  <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors" data-slide-to="1"></button>
+  <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors" data-slide-to="2"></button>
+  <button class="indicator w-3 h-3 rounded-full bg-amber-300 hover:bg-amber-500 transition-colors" data-slide-to="3"></button>
+</div>
+
         </div>
     </div>
 </section>
@@ -571,149 +595,6 @@
       </div>
     </footer>
 
-    <script>
-      // Mobile menu toggle
-      document
-        .querySelector(".mobile-menu-btn")
-        .addEventListener("click", function () {
-          document.querySelector("nav ul").classList.toggle("show");
-        });
-
-      // Job listings accordion
-      const jobCards = document.querySelectorAll(".job-card");
-      jobCards.forEach((card) => {
-        card.querySelector(".job-header").addEventListener("click", () => {
-          card.classList.toggle("active");
-        });
-      });
-
-      // Tab functionality
-      const tabBtns = document.querySelectorAll(".tab-btn");
-      tabBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          // Remove active class from all buttons
-          tabBtns.forEach((b) => b.classList.remove("active"));
-          // Add active class to clicked button
-          btn.classList.add("active");
-        });
-      });
-
-      // Form submission
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert("Thank you for your message! We will get back to you soon.");
-          this.reset();
-        });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
-
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
-            });
-
-            // Close mobile menu if open
-            document.querySelector("nav ul").classList.remove("show");
-          }
-        });
-      });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.slider-track');
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.querySelector('.slider-prev');
-        const nextBtn = document.querySelector('.slider-next');
-        const indicators = document.querySelectorAll('.indicator');
-        
-        let currentIndex = 0;
-        const slideCount = slides.length;
-        
-        // Update slide position
-        function updateSlider() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                if (index === currentIndex) {
-                    indicator.classList.add('bg-amber-600');
-                    indicator.classList.remove('bg-amber-300');
-                } else {
-                    indicator.classList.remove('bg-amber-600');
-                    indicator.classList.add('bg-amber-300');
-                }
-            });
-        }
-        
-        // Next slide
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateSlider();
-        }
-        
-        // Previous slide
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-            updateSlider();
-        }
-        
-        // Event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
-        
-        // Indicator clicks
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider();
-            });
-        });
-        
-        // Auto-advance every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Initialize slider
-        updateSlider();
-    });
-
-    //send the message from send button to whatsapp
-     document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent actual form submission
-
-    // Get values
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    // Format WhatsApp message
-    const fullMessage = `Hello! 👋%0AMessage from Taji Hotel Website:%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
-
-    // WhatsApp link
-    const phoneNumber = "254713195195";
-    const waLink = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
-
-    // Open WhatsApp in new tab
-    window.open(waLink, "_blank");
-
-    // Clear form
-    document.getElementById("contactForm").reset();
-  });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

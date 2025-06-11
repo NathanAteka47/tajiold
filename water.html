@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="tajiwater.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.jpg" />
   </head>
+  
       <section id="menu" style="background-color: var(--background)">
       <div class="container">
         <div class="section-title">
@@ -22,37 +23,40 @@
         </div>
         <div class="menu-grid">
 
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-        Water (500ml)
-      </div>
-    </div>
-    <div class="menu-details">
-      <h3>Bottle water (500ml)</h3>
-      <p>Chilled bottled mineral water.</p>
-      <div class="menu-price">
-        <span class="price">KSh 70</span>
-        <button class="btn">Add to Order</button>
-      </div>
+<!-- Bottled Water (500ml) -->
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+      Water (500ml)
     </div>
   </div>
+  <div class="menu-details">
+    <h3>Bottle water (500ml)</h3>
+    <p>Chilled bottled mineral water.</p>
+    <div class="menu-price">
+      <span class="price">KSh 70</span>
+      <button class="btn order-btn" data-name="Bottle water (500ml)" data-price="KSh 70">Add to Order</button>
+    </div>
+  </div>
+</div>
 
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
-        Water (1L)
-      </div>
-    </div>
-    <div class="menu-details">
-      <h3>Bottle water (1 litre)</h3>
-      <p>Large chilled bottled mineral water.</p>
-      <div class="menu-price">
-        <span class="price">KSh 100</span>
-        <button class="btn">Add to Order</button>
-      </div>
+<!-- Bottled Water (1L) -->
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
+      Water (1L)
     </div>
   </div>
+  <div class="menu-details">
+    <h3>Bottle water (1 litre)</h3>
+    <p>Large chilled bottled mineral water.</p>
+    <div class="menu-price">
+      <span class="price">KSh 100</span>
+      <button class="btn order-btn" data-name="Bottle water (1 litre)" data-price="KSh 100">Add to Order</button>
+    </div>
+  </div>
+</div>
+
 
 </div>
       
@@ -111,5 +115,30 @@
         </div>
       </div>
     </footer>
+            <!-- JS of order buttons -->
+    <script>
+  // Phone number to send to
+  const phoneNumber = '254718601536';
+
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all buttons with class 'order-btn'
+    const buttons = document.querySelectorAll('.order-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        const message = encodeURIComponent(
+          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
+        );
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  });
+</script>
   </body>
 </html>
