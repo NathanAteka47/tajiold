@@ -766,3 +766,28 @@
 .fries-tab {
   background-image: url('./Resources/Menuitems/2.jpg');
 }
+
+.search-container {
+  background-color: #f9f9f9;
+
+}
+
+.menu-item {
+  transition: all 0.3s ease;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px; /* or whatever size fits your design */
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 10px; /* optional: makes image rounded */
+}
+
+/* Optional tweak for very small screens */
+@media (max-width: 480px) {
+  .hero-image img {
+    max-width: 150px;
+  }
+}
