@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="tajiwater.css" />
-    <link rel="icon" type="image/png" href="./Resources/logo.jpg" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
   </head>
   
             <!-- Search Bar -->
@@ -90,7 +90,7 @@
           <div class="footer-col">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="#home">Home</a></li>
+              <li><a href="./index.html">Home</a></li>
             </ul>
           </div>
 
@@ -147,6 +147,18 @@
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
         window.open(whatsappUrl, '_blank');
       });
+    });
+  });
+  
+  
+    const searchInput = document.getElementById("searchInput");
+  const items = document.querySelectorAll(".menu-item");
+
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    items.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? "block" : "none";
     });
   });
 </script>
