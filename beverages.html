@@ -15,6 +15,26 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
   </head>
+            <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Beverages</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
 
             <!-- Search Bar -->
 <div class="search-container" style="padding: 1rem; text-align: center;">
@@ -25,50 +45,141 @@
     style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
   />
 </div>
+<!-- Menu Section -->
+<section id="menu" style="background-color: var(--background)">
+  <div class="container">
+    <div class="section-title">
+      <h2>BEVERAGES</h2>
+      <p>Traditional Kenyan drinks to refresh and energize</p>
+    </div>
+    <div class="menu-grid">
 
-      <section id="menu" style="background-color: var(--background)">
-      <div class="container">
-        <div class="section-title">
-          <h2>Beverages</h2>
-          <p>Discover our authentic Kenyan dishes</p>
+      <!-- Nyuka/Erongori/Obusala -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #D2B48C; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/17.jpg" alt="">
+          </div>
         </div>
-        <div class="menu-grid">
+        <div class="menu-details">
+          <h3>Nyuka/Erongori/Obusala</h3>
+          <p>Traditional fermented porridge</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Nyuka/Erongori/Obusala" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
 
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; font-size: 0.9em; padding: 5px;">
-      Boiled Sweet Potatoes
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Plain Boiled sweet potatoes (Rabwon/mapwoni)</h3>
-    <p>Simple and nutritious plain boiled sweet potatoes.</p>
-    <div class="menu-price">
-      <span class="price">KSh 100</span>
-      <button class="btn order-btn" data-name="Plain Boiled sweet potatoes (Rabwon/mapwoni)" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
+      <!-- Fermented porridge with Mukombero -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #A0522D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/17.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Fermented Porridge with Mukombero</h3>
+          <p>Fermented porridge enhanced with traditional herbs</p>
+          <div class="menu-price">
+            <span class="price">KSh 200</span>
+            <button class="btn order-btn" data-name="Fermented Porridge with Mukombero" data-price="KSh 200">Add to Order</button>
+          </div>
+        </div>
+      </div>
 
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-      Boiled Nduma
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Plain Boiled Nduma</h3>
-    <p>Healthy plain boiled nduma (arrowroot).</p>
-    <div class="menu-price">
-      <span class="price">KSh 100</span>
-      <button class="btn order-btn" data-name="Plain Boiled Nduma" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
+      <!-- Chai ya Madhe -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #8B4513; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Chai ya Madhe
+            <img src="./Resources/Menuitems/28.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Chai ya Madhe</h3>
+          <p>African tea brewed slowly in a pot on charcoal stove</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Chai ya Madhe" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
 
-</div>
-      
-    </section>
+      <!-- Strong tea -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #654321; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Strong Tea
+            <img src="./Resources/Menuitems/31.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Strong Tea</h3>
+          <p>Bold and flavorful Kenyan tea</p>
+          <div class="menu-price">
+            <span class="price">KSh 100</span>
+            <button class="btn order-btn" data-name="Strong Tea" data-price="KSh 100">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hot Chocolate -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #6B4423; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Hot Chocolate
+            <img src="./Resources/Menuitems/31(2).jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Hot Chocolate (with Milk)</h3>
+          <p>Creamy milk chocolate drink</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Hot Chocolate (with Milk)" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- White Coffee -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #F5DEB3; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; text-align:center; padding: 5px;">
+            White Coffee
+            <img src="./Resources/Menuitems/32.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>White Coffee</h3>
+          <p>Milky coffee beverage</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="White Coffee" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dawa -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #DAA520; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Dawa
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Dawa</h3>
+          <p>Kenyan honey-lemon medicinal drink</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Dawa" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
       <footer>
@@ -94,12 +205,7 @@
 
           <div class="footer-col">
             <h3>Opening Hours</h3>
-            <p>Monday: 7.30 am - 9.30 pm </p> 
-<p>Tuesday: 7.30 am - 9.30 pm</p> 
-<p>Wednesday day: 7.30 am - 9.30 pm </p>
-<p>Thursday day: 7.30 am - 9.30 pm </p>
-<p>Friday: 7.30 am - 9.30 pm</p> 
-<p>Saturday day: 7.30 am - 9.30 pm </p>
+            <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
 <p>Sunday: 9.30 am - 9.30 pm</p>
             <p>Open all holidays</p>
             <p>Reservations recommended for groups of 6+</p>

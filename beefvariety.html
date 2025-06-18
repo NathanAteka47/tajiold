@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taji Eats - Authentic Kenyan Cuisine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
+  </head>
+        <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Beef Variety</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
+            <!-- Search Bar -->
+<div class="search-container" style="padding: 1rem; text-align: center;">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for food items..."
+    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
+  />
+</div>
+<!-- Menu Items -->
+<section id="menu" style="background-color: var(--background)">
+  <div class="container">
+    <div class="section-title">
+      <h2>BEEF VARIETY</h2>
+      <p>Premium beef dishes prepared with traditional techniques</p>
+    </div>
+    <div class="menu-grid">
+
+      <!-- Grandma Style Beef -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #8B0000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/57.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Grandma Style Beef</h3>
+          <p>Tenderly done beef cooked in a clay pot with a hint of munyu mushelekha</p>
+          <div class="menu-price">
+            <span class="price">KSh 400</span>
+            <button class="btn order-btn" data-name="Grandma Style Beef" data-price="KSh 400">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wet Fry Beef -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #A52A2A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/48.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Wet Fry Beef</h3>
+          <p>Juicy beef simmered in rich gravy</p>
+          <div class="menu-price">
+            <span class="price">KSh 400</span>
+            <button class="btn order-btn" data-name="Wet Fry Beef" data-price="KSh 400">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panfried Beef -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #800000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/49.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Panfried Beef</h3>
+          <p>Beef perfectly seared to caramelized perfection</p>
+          <div class="menu-price">
+            <span class="price">KSh 500</span>
+            <button class="btn order-btn" data-name="Panfried Beef" data-price="KSh 500">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aliya -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #654321; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Aliya
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Aliya</h3>
+          <p>Stewed sun-dried beef cooked with milk and Mor Aienya</p>
+          <div class="menu-price">
+            <span class="price">KSh 500</span>
+            <button class="btn order-btn" data-name="Aliya" data-price="KSh 500">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orange Beef -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #FF8C00; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/50.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Orange Beef</h3>
+          <p>Classic beef preparation with citrus notes</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Orange Beef" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wet Fried Orange -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #FF4500; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/8.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Wet Fried Orange Beef</h3>
+          <p>Juicy beef in gravy with citrus flavor</p>
+          <div class="menu-price">
+            <span class="price">KSh 300</span>
+            <button class="btn order-btn" data-name="Wet Fried Orange Beef" data-price="KSh 300">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liver -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #B22222; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Beef Liver
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Beef Liver</h3>
+          <p>Nutrient-rich beef liver perfectly cooked</p>
+          <div class="menu-price">
+            <span class="price">KSh 500</span>
+            <button class="btn order-btn" data-name="Beef Liver" data-price="KSh 500">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+      <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Taji Eats</h3>
+            <p>Tradition Meets Modernity</p>
+            <p>
+              Serving authentic Kenyan cuisine with a modern twist since 2023.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Opening Hours</h3>
+            <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
+<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Open all holidays</p>
+            <p>Reservations recommended for groups of 6+</p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for special offers and updates.</p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required />
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Taji Eats. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+        <!-- JS of order buttons -->
+    <script>
+  // Phone number to send to
+  const phoneNumber = '254713195195';
+
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all buttons with class 'order-btn'
+    const buttons = document.querySelectorAll('.order-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        const message = encodeURIComponent(
+          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
+        );
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  });
+
+  
+    const searchInput = document.getElementById("searchInput");
+  const items = document.querySelectorAll(".menu-item");
+
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    items.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+</script>
+  </body>
+</html>

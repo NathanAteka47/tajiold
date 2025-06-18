@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taji Eats - Authentic Kenyan Cuisine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
+  </head>
+        <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Taji Cakes</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
+            <!-- Search Bar -->
+<div class="search-container" style="padding: 1rem; text-align: center;">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for food items..."
+    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
+  />
+</div>
+<!-- Menu Items -->
+      <section id="menu" style="background-color: var(--background)">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Cakes Menu</h2>
+          <p>Discover our authentic Kenyan dishes</p>
+        </div>
+        <div class="menu-grid">
+
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+      Forest Cake Slice
+    </div>
+  </div>
+  <div class="menu-details">
+    <h3>Forest cake slice</h3>
+    <p>Choice of Whiteforest, Black forest, or Passion Forest cake slice frosted with whipped cream.</p>
+    <div class="menu-price">
+      <span class="price">KSh 400</span>
+      <button class="btn order-btn" data-name="Forest cake slice" data-price="KSh 400">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+      Choc/Red Velvet Cake
+    </div>
+  </div>
+  <div class="menu-details">
+    <h3>Chocolate/Red Velvet Cake slice</h3>
+    <p>A delicious slice of either Chocolate or Red Velvet cake.</p>
+    <div class="menu-price">
+      <span class="price">KSh 400</span>
+      <button class="btn order-btn" data-name="Chocolate/Red Velvet Cake slice" data-price="KSh 400">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
+      Vanilla/Orange/Lemon Cake
+    </div>
+  </div>
+  <div class="menu-details">
+    <h3>Vanilla/orange/Lemon Cake slice</h3>
+    <p>A delightful slice of Vanilla, Orange, or Lemon cake.</p>
+    <div class="menu-price">
+      <span class="price">KSh 350</span>
+      <button class="btn order-btn" data-name="Vanilla/orange/Lemon Cake slice" data-price="KSh 350">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+      Plain Keki (3pcs)
+    </div>
+  </div>
+  <div class="menu-details">
+    <h3>Plain Keki Na Taji Cupcakes (3)</h3>
+    <p>Three plain Taji cupcakes, perfect for a light snack.</p>
+    <div class="menu-price">
+      <span class="price">KSh 100</span>
+      <button class="btn order-btn" data-name="Plain Keki Na Taji Cupcakes (3)" data-price="KSh 100">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-item">
+  <div class="menu-image">
+    <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+      Frosted Keki (1pc)
+    </div>
+  </div>
+  <div class="menu-details">
+    <h3>Frosted Keki Na Taji Cupcake (1)</h3>
+    <p>One delicious frosted Taji cupcake.</p>
+    <div class="menu-price">
+      <span class="price">KSh 100</span>
+      <button class="btn order-btn" data-name="Frosted Keki Na Taji Cupcake (1)" data-price="KSh 100">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+</div>
+      
+    </section>
+
+    <!-- Footer -->
+      <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Taji Eats</h3>
+            <p>Tradition Meets Modernity</p>
+            <p>
+              Serving authentic Kenyan cuisine with a modern twist since 2023.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Opening Hours</h3>
+            <p>Monday: 7.30 am - 9.30 pm </p> 
+<p>Tuesday: 7.30 am - 9.30 pm</p> 
+<p>Wednesday day: 7.30 am - 9.30 pm </p>
+<p>Thursday day: 7.30 am - 9.30 pm </p>
+<p>Friday: 7.30 am - 9.30 pm</p> 
+<p>Saturday day: 7.30 am - 9.30 pm </p>
+<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Open all holidays</p>
+            <p>Reservations recommended for groups of 6+</p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for special offers and updates.</p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required />
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Taji Eats. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    
+        <script>
+  // Phone number to send to
+  const phoneNumber = '254713195195';
+
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all buttons with class 'order-btn'
+    const buttons = document.querySelectorAll('.order-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        const message = encodeURIComponent(
+          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
+        );
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  });
+
+  
+    const searchInput = document.getElementById("searchInput");
+  const items = document.querySelectorAll(".menu-item");
+
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    items.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+</script>
+  </body>
+</html>

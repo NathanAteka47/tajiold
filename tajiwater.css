@@ -58,14 +58,14 @@
 
       .logo h1 {
           font-size: 24px;
-          color: white;
+          color: rgb(255, 255, 255);
           margin-left: 10px;
       }
 
       .logo img {
           height: 50px;
           border-radius: 50%;
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0);
           padding: 5px;
       }
 

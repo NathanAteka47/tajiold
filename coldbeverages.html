@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taji Eats - Authentic Kenyan Cuisine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
+  </head>
+  <body>
+            <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Cold Beverages</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" style="padding: 1rem; text-align: center;">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for drinks..."
+        style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
+      />
+    </div>
+
+    <!-- Menu Section -->
+  <section id="menu" style="background-color: var(--background)">
+    <div class="container">
+      <div class="section-title">
+        <h2>Cold Beverages</h2>
+      </div>
+      <div class="menu-grid">
+
+        <!-- Sour Milk -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/69.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Sour Milk (Mala)</h3>
+            <p>Traditional fermented milk drink.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Sour Milk (Mala)" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mango Juice 500ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Fresh Mango Juice (500ml)</h3>
+            <p>Sweet and refreshing freshly squeezed.</p>
+            <div class="menu-price">
+              <span class="price">KSh 200</span>
+              <button class="btn order-btn" data-name="Fresh Mango Juice (500ml)" data-price="KSh 200">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mango Juice 350ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+            <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Fresh Mango Juice (350ml)</h3>
+            <p>Chilled smaller portion of fresh juice.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Fresh Mango Juice (350ml)" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passion Juice 500ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Passion Fruit Juice (500ml)</h3>
+            <p>Rich and tangy passion fruit juice served cold.</p>
+            <div class="menu-price">
+              <span class="price">KSh 200</span>
+              <button class="btn order-btn" data-name="Passion Fruit Juice (500ml)" data-price="KSh 200">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passion Juice 350ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Passion Fruit Juice (350ml)</h3>
+            <p>Fruity and refreshing chilled drink.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Passion Fruit Juice (350ml)" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tamarind Juice -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Tamarind Juice</h3>
+            <p>Bold, tangy and traditional tamarind drink served chilled.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Tamarind Juice" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beetroot Juice -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/18.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Beetroot Juice</h3>
+            <p>Nutritious and vibrant red beetroot blend.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Beetroot Juice" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mukombero -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              Mukombero
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Mukombero Drink</h3>
+            <p>Traditional herbal energy drink with a revitalizing taste.</p>
+            <div class="menu-price">
+              <span class="price">KSh 300</span>
+              <button class="btn order-btn" data-name="Mukombero Drink" data-price="KSh 300">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottle Water 500ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/70.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Chilled Bottle Water (500ml)</h3>
+            <p>Pure mineral water served chilled.</p>
+            <div class="menu-price">
+              <span class="price">KSh 70</span>
+              <button class="btn order-btn" data-name="Bottle Water (500ml)" data-price="KSh 70">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottle Water 1 Litre -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/33.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Chilled Bottle Water (1 Litre)</h3>
+            <p>Large mineral water bottle served chilled.</p>
+            <div class="menu-price">
+              <span class="price">KSh 100</span>
+              <button class="btn order-btn" data-name="Bottle Water (1 Litre)" data-price="KSh 100">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soda 500ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/ssoda.webp" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Refreshing Soda (500ml)</h3>
+            <p>Classic carbonated soda drink.</p>
+            <div class="menu-price">
+              <span class="price">KSh 150</span>
+              <button class="btn order-btn" data-name="Soda (500ml)" data-price="KSh 150">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soda 300ml -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/300ml.png" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Refreshing Soda (300ml)</h3>
+            <p>Smaller serving of carbonated soda drink.</p>
+            <div class="menu-price">
+              <span class="price">KSh 100</span>
+              <button class="btn order-btn" data-name="Soda (300ml)" data-price="KSh 100">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sweet Red Wine -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/red.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Sweet Red Wine</h3>
+            <p>Deliciously sweet and smooth red wine.</p>
+            <div class="menu-price">
+              <span class="price">KSh 450</span>
+              <button class="btn order-btn" data-name="Sweet Red Wine" data-price="KSh 450">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dry White Wine -->
+        <div class="menu-item">
+          <div class="menu-image">
+            <div style="background-color: #c9b18a; height:100%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">
+              <img src="./Resources/Menuitems/35.jpg" alt="">
+            </div>
+          </div>
+          <div class="menu-details">
+            <h3>Dry White Wine</h3>
+            <p>Crisp and dry white wine with a clean finish.</p>
+            <div class="menu-price">
+              <span class="price">KSh 450</span>
+              <button class="btn order-btn" data-name="Dry White Wine" data-price="KSh 450">Add to Order</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Taji Eats</h3>
+            <p>Tradition Meets Modernity</p>
+            <p>Serving authentic Kenyan cuisine with a modern twist since 2023.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Opening Hours</h3>
+            <p>Monday to Saturday: 7.30 am - 9.30 pm</p>
+            <p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Open all holidays</p>
+            <p>Reservations recommended for groups of 6+</p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for special offers and updates.</p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required />
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Taji Eats. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS for order buttons and search -->
+    <script>
+      const phoneNumber = '254713195195';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.order-btn');
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            const message = encodeURIComponent(`Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+          });
+        });
+
+        const searchInput = document.getElementById("searchInput");
+        const items = document.querySelectorAll(".menu-item");
+        searchInput.addEventListener("input", () => {
+          const filter = searchInput.value.toLowerCase();
+          items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(filter) ? "block" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

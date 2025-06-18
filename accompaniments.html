@@ -15,6 +15,27 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
   </head>
+          <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Accompaniments</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
           <!-- Search Bar -->
 <div class="search-container" style="padding: 1rem; text-align: center;">
   <input
@@ -24,176 +45,159 @@
     style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
   />
 </div>
+<!-- menu section -->
+<section id="menu" style="background-color: var(--background)">
+  <div class="container">
+    <div class="section-title">
+      <h2>Accompaniments</h2>
+      <p>Traditional Kenyan sides to complement your meal</p>
+    </div>
+    <div class="menu-grid">
 
-      <section id="menu" style="background-color: var(--background)">
-      <div class="container">
-        <div class="section-title">
-          <h2>Accompaniments</h2>
-          <p>Discover our authentic Kenyan dishes</p>
+      <!-- Nyoyo/Mænjela/Chinyoyo -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #5E8C3D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Nyoyo Mix
+            <img src="./Resources/Menuitems/20.jpg" alt="">
+          </div>
         </div>
-        <div class="menu-grid">
+        <div class="menu-details">
+          <h3>Nyoyo/Mænjela/Chinyoyo</h3>
+          <p>Mixed green maize, beans and tsimbande (monkey nuts)</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Nyoyo/Mænjela/Chinyoyo" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
 
-<!-- START OF MENU ITEMS -->
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #c45e3d;">
-        <img src="./Resources/Menuitems/sweetpotatoes.jpg" alt="">
+      <!-- Sweet Potatoes -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #C45E3D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Sweet Potatoes
+            <img src="./Resources/Menuitems/67.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Plain Boiled Sweet Potatoes (Rabwon/Mapwoni)</h3>
+          <p>Simple and nutritious plain boiled sweet potatoes</p>
+          <div class="menu-price">
+            <span class="price">KSh 100</span>
+            <button class="btn order-btn" data-name="Plain Boiled Sweet Potatoes" data-price="KSh 100">Add to Order</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="menu-details">
-      <h3>Boiled sweet potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot</h3>
-      <p>A hearty combination of boiled sweet potatoes, wet fried beef, and a pot of tea.</p>
-      <div class="menu-price">
-        <span class="price">KSh 500</span>
-        <button class="btn order-btn" data-name="Boiled sweet potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot" data-price="KSh 500">Add to Order</button>
+
+      <!-- Nduma -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Arrowroot
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Plain Boiled Nduma</h3>
+          <p>Healthy plain boiled nduma (arrowroot)</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Plain Boiled Nduma" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
       </div>
+
+      <!-- Njugu Karanga -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #A0522D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Roasted Nuts
+            <img src="./Resources/Menuitems/njugukaranga&simsim.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Njugu Karanga & Simsim</h3>
+          <p>Salted red ground nuts & simsim roasted on a clay pan</p>
+          <div class="menu-price">
+            <span class="price">KSh 200</span>
+            <button class="btn order-btn" data-name="Njugu Karanga & Simsim" data-price="KSh 200">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sausage -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #D2691E; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Sausage Combo
+            <img src="./Resources/Menuitems/66.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Sausage (2 sausages with fries)</h3>
+          <p>Two sausages served with a small portion of French fries</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Sausage with Fries" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Omelettes -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #F4A460; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Omelette
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Plain Omelette</h3>
+          <p>Classic plain egg omelette</p>
+          <div class="menu-price">
+            <span class="price">KSh 100</span>
+            <button class="btn order-btn" data-name="Plain Omelette" data-price="KSh 100">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spanish Omelette -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #CD853F; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Spanish Omelette
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Spanish Omelette</h3>
+          <p>Fluffy omelette with vegetables</p>
+          <div class="menu-price">
+            <span class="price">KSh 150</span>
+            <button class="btn order-btn" data-name="Spanish Omelette" data-price="KSh 150">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapati -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #DEB887; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Chapati
+            <img src="./Resources/Menuitems/68.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Plain Chapati</h3>
+          <p>Soft, unleavened flatbread</p>
+          <div class="menu-price">
+            <span class="price">KSh 100</span>
+            <button class="btn order-btn" data-name="Plain Chapati" data-price="KSh 100">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #D8A07A;">Sausage & Fries</div>
-    </div>
-    <div class="menu-details">
-      <h3>Sausage (2 sausages with a little French fries)</h3>
-      <p>Two sausages served with a small portion of French fries.</p>
-      <div class="menu-price">
-        <span class="price">KSh 150</span>
-        <button class="btn order-btn" data-name="Sausage (2 sausages with a little French fries)" data-price="KSh 150">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #8E705B;">Nduma, Beef & Tea</div>
-    </div>
-    <div class="menu-details">
-      <h3>Boiled Nduma potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot</h3>
-      <p>A satisfying meal of boiled nduma (arrowroot) potatoes, wet fried beef, and a pot of tea.</p>
-      <div class="menu-price">
-        <span class="price">KSh 550</span>
-        <button class="btn order-btn" data-name="Boiled Nduma potatoes (Rabwon/mapwoni) + Wet Fried Beef + Tea Pot" data-price="KSh 550">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #c45e3d;">Orange Soup & Ugali</div>
-    </div>
-    <div class="menu-details">
-      <h3>Orange Soup + Ugali</h3>
-      <p>A unique and flavorful orange soup served with ugali.</p>
-      <div class="menu-price">
-        <span class="price">KSh 250</span>
-        <button class="btn order-btn" data-name="Orange Soup + Ugali" data-price="KSh 250">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #8E705B;">Chapati, Beef Wet Fry & Tea</div>
-    </div>
-    <div class="menu-details">
-      <h3>Chapati + Beef Wet Fry + Tea Pot</h3>
-      <p>Flaky chapati served with delicious beef wet fry and a pot of tea.</p>
-      <div class="menu-price">
-        <span class="price">KSh 500</span>
-        <button class="btn order-btn" data-name="Chapati + Beef Wet Fry + Tea Pot" data-price="KSh 500">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #8E705B;">Matumbo</div>
-    </div>
-    <div class="menu-details">
-      <h3>Matumbo</h3>
-      <p>Traditional tripe stew, cooked to perfection.</p>
-      <div class="menu-price">
-        <span class="price">KSh 350</span>
-        <button class="btn order-btn" data-name="Matumbo" data-price="KSh 350">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #D8A07A;">Nyoyo/Maenjela</div>
-    </div>
-    <div class="menu-details">
-      <h3>Nyoyo/Maenjela/Chinyoyo</h3>
-      <p>Mixed green maize, beans and luimbande (monkey nuts). Served with maize meal/ugali, rice, fries or chapati (millet meal/ugali option KSh 50 higher).</p>
-      <div class="menu-price">
-        <span class="price">KSh 250</span>
-        <button class="btn order-btn" data-name="Nyoyo/Maenjela/Chinyoyo" data-price="KSh 250">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #AD8B73;">Plain Omelette</div>
-    </div>
-    <div class="menu-details">
-      <h3>Plain omelette</h3>
-      <p>A classic plain omelette, perfectly cooked.</p>
-      <div class="menu-price">
-        <span class="price">KSh 100</span>
-        <button class="btn order-btn" data-name="Plain omelette" data-price="KSh 100">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #BCA997;">French Omelette</div>
-    </div>
-    <div class="menu-details">
-      <h3>French omelette</h3>
-      <p>A light and fluffy French style omelette.</p>
-      <div class="menu-price">
-        <span class="price">KSh 150</span>
-        <button class="btn order-btn" data-name="French omelette" data-price="KSh 150">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #c9b18a;">Plain Chapati</div>
-    </div>
-    <div class="menu-details">
-      <h3>Plain Chapati</h3>
-      <p>Soft and flaky plain chapati.</p>
-      <div class="menu-price">
-        <span class="price">KSh 100</span>
-        <button class="btn order-btn" data-name="Plain Chapati" data-price="KSh 100">Add to Order</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-item">
-    <div class="menu-image">
-      <div style="background-color: #a67c52;">Mandazi</div>
-    </div>
-    <div class="menu-details">
-      <h3>Mandazi</h3>
-      <p>Traditional Kenyan sweet fried dough, perfect with tea.</p>
-      <div class="menu-price">
-        <span class="price">KSh 100</span>
-        <button class="btn order-btn" data-name="Mandazi" data-price="KSh 100">Add to Order</button>
-      </div>
-    </div>
-  </div>
-  <!-- END OF MENU ITEMS -->
-
-</div>
-      
-    </section>
+</section>
 
     <!-- Footer -->
       <footer>
@@ -219,12 +223,7 @@
 
           <div class="footer-col">
             <h3>Opening Hours</h3>
-            <p>Monday: 7.30 am - 9.30 pm </p> 
-<p>Tuesday: 7.30 am - 9.30 pm</p> 
-<p>Wednesday day: 7.30 am - 9.30 pm </p>
-<p>Thursday day: 7.30 am - 9.30 pm </p>
-<p>Friday: 7.30 am - 9.30 pm</p> 
-<p>Saturday day: 7.30 am - 9.30 pm </p>
+            <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
 <p>Sunday: 9.30 am - 9.30 pm</p>
             <p>Open all holidays</p>
             <p>Reservations recommended for groups of 6+</p>

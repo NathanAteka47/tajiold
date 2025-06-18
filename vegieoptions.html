@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taji Eats - Authentic Kenyan Cuisine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
+  </head>
+        <!-- Header Section -->
+    <header>
+    <div class="container header-container">
+        <div class="logo">
+          <div class="logo-placeholder">
+            <img src="./Resources/logo.png" alt="EATS" />
+          </div>
+          <h1>Vegie Options</h1>
+        </div>
+                <nav>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
+          </ul>
+        </nav>
+    </div>
+    </header>
+            <!-- Search Bar -->
+<div class="search-container" style="padding: 1rem; text-align: center;">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for food items..."
+    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
+  />
+</div>
+<!-- Menu Items -->
+<section id="menu" style="background-color: var(--background)">
+  <div class="container">
+    <div class="section-title">
+      <h2>VEGIE OPTIONS</h2>
+      <p>Healthy traditional vegetable dishes</p>
+    </div>
+    <div class="menu-grid">
+
+      <!-- Nyoyo/Maenjela/Chinyoyo -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #2E8B57; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/20.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Nyoyo/Maenjela/Chinyoyo</h3>
+          <p>Mixed green maize, beans and tsimbande (monkey nuts)</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Nyoyo/Maenjela/Chinyoyo" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sweet Managu/Lisutsa/Osuga -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #3CB371; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/2.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Sweet Managu/Lisutsa/Osuga Plain</h3>
+          <p>Traditional leafy green vegetable preparation</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Sweet Managu/Lisutsa/Osuga Plain" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sebebe/Susa/Pumpkin Leaves -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #228B22; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            <img src="./Resources/Menuitems/saga.jpg" alt="">
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Sebebe/Susa/Pumpkin Leaves Plain</h3>
+          <p>Nutritious pumpkin leaves preparation</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Sebebe/Susa/Pumpkin Leaves Plain" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tender saga/Tsisaka/Omonyenye -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #008000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Saga
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Tender saga/Tsisaka/Omonyenye Plain</h3>
+          <p>Delicate leafy green vegetable dish</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Tender saga/Tsisaka/Omonyenye Plain" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mrenda -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #6B8E23; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Mrenda
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Mrenda Plain</h3>
+          <p>Traditional jute leaves preparation</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Mrenda Plain" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kunde -->
+      <div class="menu-item">
+        <div class="menu-image">
+          <div style="background-color: #556B2F; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
+            Kunde
+          </div>
+        </div>
+        <div class="menu-details">
+          <h3>Kunde Plain</h3>
+          <p>Classic cowpea leaves dish</p>
+          <div class="menu-price">
+            <span class="price">KSh 250</span>
+            <button class="btn order-btn" data-name="Kunde Plain" data-price="KSh 250">Add to Order</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="menu-footer" style="text-align: center; margin-top: 20px; font-style: italic; color: #666;">
+      <p>Served with maize meal/ugali, rice, fries or chapati</p>
+      <p>Meals served with millet cost Ksh.50 higher | Fries Ksh.100 higher</p>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+      <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Taji Eats</h3>
+            <p>Tradition Meets Modernity</p>
+            <p>
+              Serving authentic Kenyan cuisine with a modern twist since 2023.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Opening Hours</h3>
+            <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
+<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Open all holidays</p>
+            <p>Reservations recommended for groups of 6+</p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for special offers and updates.</p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required />
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Taji Eats. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+            <!-- JS of order buttons -->
+    <script>
+  // Phone number to send to
+  const phoneNumber = '254713195195';
+
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all buttons with class 'order-btn'
+    const buttons = document.querySelectorAll('.order-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = button.getAttribute('data-price');
+
+        const message = encodeURIComponent(
+          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
+        );
+
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  });
+
+  
+    const searchInput = document.getElementById("searchInput");
+  const items = document.querySelectorAll(".menu-item");
+
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    items.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+</script>
+  </body>
+</html>
