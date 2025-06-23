@@ -128,7 +128,7 @@
     const message = document.getElementById("message").value.trim();
 
     // Format WhatsApp message
-    const fullMessage = `Hello! 👋%0AMessage from Taji Hotel Website:%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+    const fullMessage = `Hello! 👋%0AMessage from Taji Hotel Website. I'd like to place an order.`;
 
     // WhatsApp link
     const phoneNumber = "254713195195";
