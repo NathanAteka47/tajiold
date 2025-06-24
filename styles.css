@@ -349,74 +349,6 @@
           font-size: 20px;
       }
 
-      /* Careers Section */
-      .careers-intro {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 40px;
-      }
-
-      .job-listings {
-          max-width: 800px;
-          margin: 0 auto;
-      }
-
-      .job-card {
-          background-color: white;
-          border-radius: 10px;
-          padding: 25px;
-          margin-bottom: 20px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .job-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 15px;
-          cursor: pointer;
-      }
-
-      .job-title {
-          font-size: 20px;
-          color: var(--primary);
-      }
-
-      .job-icon {
-          font-size: 20px;
-          transition: transform 0.3s ease;
-      }
-
-      .job-details {
-          display: none;
-          padding-top: 20px;
-          border-top: 1px solid #eee;
-      }
-
-      .job-card.active .job-details {
-          display: block;
-      }
-
-      .job-card.active .job-icon {
-          transform: rotate(180deg);
-      }
-
-      .requirements {
-          margin: 20px 0;
-      }
-
-      .requirements li {
-          margin-bottom: 8px;
-          margin-left: 20px;
-      }
-
-      .apply-info {
-          background-color: var(--background);
-          padding: 15px;
-          border-radius: 5px;
-          margin-top: 20px;
-      }
-
       /* Contact Section */
       .contact-container {
           display: grid;
@@ -861,3 +793,63 @@
   }
 }
 
+   /* Offers and careers Section */
+  .offers-social-section {
+  padding: 60px 20px;
+  background-color: #fff8f2;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.offers-gallery h2,
+.social-locations h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #b3382c;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.social-locations {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
