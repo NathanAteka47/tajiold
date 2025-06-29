@@ -662,6 +662,9 @@
 .keki-tab {
   background-image: url('./Resources/Banner/keki.jpg');
 }
+.bukusu-tab {
+  background-image: url('./Resources/Gallery/22.jpg');
+}
 /*taji eats on tajieats.html different menu tabs */
 .beverages-tab {
   background-image: url('./Resources/MenuTabItems/beverages.webp');
