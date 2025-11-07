@@ -14,19 +14,222 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
+    <style>
+      /* Additional styles specific to this page */
+      .search-container {
+        background-color: var(--primary);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .search-input {
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        outline: none;
+      }
+      
+      .search-input:focus {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .menu-image {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .menu-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .menu-item:hover .menu-image img {
+        transform: scale(1.1);
+      }
+      
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .menu-item:hover .image-overlay {
+        transform: translateY(0);
+      }
+      
+      .order-btn {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .order-btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .price-tag {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+      
+      .menu-category {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .menu-category h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .menu-category h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+        transition: width 0.5s ease;
+      }
+      
+      .menu-category:hover h2::after {
+        width: 120px;
+      }
+      
+      .menu-category p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* Cart notification */
+      .cart-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+      
+      .cart-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .cart-icon {
+        font-size: 1.2rem;
+      }
+      
+      /* Loading animation for images */
+      .menu-image {
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .menu-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .search-input {
+          width: 80%;
+        }
+        
+        .menu-category h2 {
+          font-size: 2rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .search-input {
+          width: 90%;
+        }
+        
+        .menu-category h2 {
+          font-size: 1.8rem;
+        }
+        
+        .menu-category p {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
-          <!-- Header Section -->
+  <body>
+    <!-- Header Section -->
     <header>
-    <div class="container header-container">
+      <div class="container header-container">
         <div class="logo">
-    <a href="index.html" class="logo">
-      <div class="logo-placeholder">
-        <img src="./Resources/logo.png" alt="EATS" />
-      </div>
-    </a>
+          <a href="index.html" class="logo">
+            <div class="logo-placeholder">
+              <img src="./Resources/logo.png" alt="EATS" />
+            </div>
+          </a>
           <h1>Accompaniments</h1>
         </div>
-                <nav>
+        <nav>
           <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
           </button>
@@ -36,227 +239,233 @@
             <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
           </ul>
         </nav>
-    </div>
+      </div>
     </header>
-          <!-- Search Bar -->
-<div class="search-container" style="padding: 1rem; text-align: center;">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search for food items..."
-    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
-  />
-</div>
-<!-- menu section -->
-<section id="menu" style="background-color: var(--background)">
-  <div class="container">
-    <div class="section-title">
-      <h2>Accompaniments</h2>
-      <p>Traditional Kenyan sides to complement your meal</p>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="container" style="text-align: center;">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for food items..."
+          class="search-input"
+        />
+      </div>
     </div>
-    <div class="menu-grid">
 
-      <!-- Nyoyo/Mænjela/Chinyoyo -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #5E8C3D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Nyoyo Mix
-            <img src="./Resources/Menuitems/20.jpg" alt="">
-          </div>
+    <!-- Menu section -->
+    <section id="menu" style="background-color: var(--background); padding: 3rem 0;">
+      <div class="container">
+        <div class="menu-category fade-in">
+          <h2>Accompaniments</h2>
+          <p>Traditional Kenyan sides to complement your meal</p>
         </div>
-        <div class="menu-details">
-          <h3>Nyoyo/Mænjela/Chinyoyo</h3>
-          <p>Mixed green maize, beans and tsimbande (monkey nuts)</p>
-          <div class="menu-price">
-            <span class="price">KSh 250</span>
-            <button class="btn order-btn" data-name="Nyoyo/Mænjela/Chinyoyo" data-price="KSh 250">Add to Order</button>
+        <div class="menu-grid">
+
+          <!-- Nyoyo/Mænjela/Chinyoyo -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/20.jpg" alt="Nyoyo Mix">
+              <div class="image-overlay">Nyoyo Mix</div>
+            </div>
+            <div class="menu-details">
+              <h3>Nyoyo/Mænjela/Chinyoyo</h3>
+              <p>Mixed green maize, beans and tsimbande (monkey nuts)</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 250</span>
+                <button class="order-btn" data-name="Nyoyo/Mænjela/Chinyoyo" data-price="KSh 250">Add to Order</button>
+              </div>
+            </div>
           </div>
+
+          <!-- Sweet Potatoes -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/67.jpg" alt="Sweet Potatoes">
+              <div class="image-overlay">Sweet Potatoes</div>
+            </div>
+            <div class="menu-details">
+              <h3>Plain Boiled Sweet Potatoes (Rabwon/Mapwoni)</h3>
+              <p>Simple and nutritious plain boiled sweet potatoes</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Plain Boiled Sweet Potatoes" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mahamri -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Mahamri
+              </div>
+              <div class="image-overlay">Mahamri</div>
+            </div>
+            <div class="menu-details">
+              <h3>Mahamri</h3>
+              <p>Sweet Mahamris</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Mahamri" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nduma -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Arrowroot
+              </div>
+              <div class="image-overlay">Arrowroot</div>
+            </div>
+            <div class="menu-details">
+              <h3>Plain Boiled Nduma</h3>
+              <p>Healthy plain boiled nduma (arrowroot)</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Plain Boiled Nduma" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cassava / Muhogo -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Cassava / Muhogo
+              </div>
+              <div class="image-overlay">Cassava / Muhogo</div>
+            </div>
+            <div class="menu-details">
+              <h3>Cassava / Muhogo</h3>
+              <p>Healthy plain boiled Cassava / Muhogo</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Cassava / Muhogo" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Njugu Karanga -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/njugukaranga&simsim.jpg" alt="Roasted Nuts">
+              <div class="image-overlay">Roasted Nuts</div>
+            </div>
+            <div class="menu-details">
+              <h3>Njugu Karanga & Simsim</h3>
+              <p>Salted red ground nuts & simsim roasted on a clay pan</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 200</span>
+                <button class="order-btn" data-name="Njugu Karanga & Simsim" data-price="KSh 200">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sausage -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/66.jpg" alt="Sausage Combo">
+              <div class="image-overlay">Sausage Combo</div>
+            </div>
+            <div class="menu-details">
+              <h3>Sausage (2 sausages with fries)</h3>
+              <p>Two sausages served with a small portion of French fries</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Sausage with Fries" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Samosa -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #D2691E; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Samosa Combo
+              </div>
+              <div class="image-overlay">Samosa Combo</div>
+            </div>
+            <div class="menu-details">
+              <h3>Samosa (2 samosas with fries)</h3>
+              <p>Two samosas served with a small portion of French fries</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Samosa with Fries" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Omelettes -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #F4A460; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Omelette
+              </div>
+              <div class="image-overlay">Omelette</div>
+            </div>
+            <div class="menu-details">
+              <h3>Plain Omelette</h3>
+              <p>Classic plain egg omelette</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Plain Omelette" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spanish Omelette -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <div style="background-color: #CD853F; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Spanish Omelette
+              </div>
+              <div class="image-overlay">Spanish Omelette</div>
+            </div>
+            <div class="menu-details">
+              <h3>Spanish Omelette</h3>
+              <p>Fluffy omelette with vegetables</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 150</span>
+                <button class="order-btn" data-name="Spanish Omelette" data-price="KSh 150">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chapati -->
+          <div class="menu-item fade-in">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/68.jpg" alt="Chapati">
+              <div class="image-overlay">Chapati</div>
+            </div>
+            <div class="menu-details">
+              <h3>Plain Chapati</h3>
+              <p>Soft, unleavened flatbread</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Plain Chapati" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- Sweet Potatoes -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #C45E3D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Sweet Potatoes
-            <img src="./Resources/Menuitems/67.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Plain Boiled Sweet Potatoes (Rabwon/Mapwoni)</h3>
-          <p>Simple and nutritious plain boiled sweet potatoes</p>
-          <div class="menu-price">
-            <span class="price">KSh 100</span>
-            <button class="btn order-btn" data-name="Plain Boiled Sweet Potatoes" data-price="KSh 100">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-            <!-- Mahamri -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Mahamri
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Mahamri</h3>
-          <p>Sweet Mahamris</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Plain Boiled Nduma" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Nduma -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Arrowroot
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Plain Boiled Nduma</h3>
-          <p>Healthy plain boiled nduma (arrowroot)</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Plain Boiled Nduma" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-            <!-- Cassava / Muhogo -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Cassava / Muhogo
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Cassava / Muhogo</h3>
-          <p>Healthy plain boiled Cassava / Muhogo</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Plain Boiled Nduma" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Njugu Karanga -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #A0522D; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Roasted Nuts
-            <img src="./Resources/Menuitems/njugukaranga&simsim.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Njugu Karanga & Simsim</h3>
-          <p>Salted red ground nuts & simsim roasted on a clay pan</p>
-          <div class="menu-price">
-            <span class="price">KSh 200</span>
-            <button class="btn order-btn" data-name="Njugu Karanga & Simsim" data-price="KSh 200">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sausage -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #D2691E; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Sausage Combo
-            <img src="./Resources/Menuitems/66.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Sausage (2 sausages with fries)</h3>
-          <p>Two sausages served with a small portion of French fries</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Sausage with Fries" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-            <!-- Samosa -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #D2691E; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Samosa Combo
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Samosa (2 sausages with fries)</h3>
-          <p>Two samosas served with a small portion of French fries</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Samosa with Fries" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Omelettes -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #F4A460; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Omelette
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Plain Omelette</h3>
-          <p>Classic plain egg omelette</p>
-          <div class="menu-price">
-            <span class="price">KSh 100</span>
-            <button class="btn order-btn" data-name="Plain Omelette" data-price="KSh 100">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Spanish Omelette -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #CD853F; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Spanish Omelette
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Spanish Omelette</h3>
-          <p>Fluffy omelette with vegetables</p>
-          <div class="menu-price">
-            <span class="price">KSh 150</span>
-            <button class="btn order-btn" data-name="Spanish Omelette" data-price="KSh 150">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chapati -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #DEB887; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Chapati
-            <img src="./Resources/Menuitems/68.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Plain Chapati</h3>
-          <p>Soft, unleavened flatbread</p>
-          <div class="menu-price">
-            <span class="price">KSh 100</span>
-            <button class="btn order-btn" data-name="Plain Chapati" data-price="KSh 100">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+      <i class="fas fa-shopping-cart cart-icon"></i>
+      <span id="notificationText">Item added to cart!</span>
     </div>
-  </div>
-</section>
 
     <!-- Footer -->
-      <footer>
+    <footer>
       <div class="container">
         <div class="footer-container">
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Taji Eats</h3>
             <p>Tradition Meets Modernity</p>
             <p>
@@ -267,22 +476,22 @@
             </div>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="./index.html">Home</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Opening Hours</h3>
             <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
-<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Sunday: 9.30 am - 9.30 pm</p>
             <p>Open all holidays</p>
             <p>Reservations recommended for groups of 6+</p>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Newsletter</h3>
             <p>Subscribe to our newsletter for special offers and updates.</p>
             <form>
@@ -299,41 +508,117 @@
         </div>
       </div>
     </footer>
+
     <!-- JS of order buttons -->
     <script>
-  // Phone number to send to
-  const phoneNumber = '254713195195';
+      // Phone number to send to
+      const phoneNumber = '254713195195';
+      
+      // Cart items array
+      let cartItems = [];
 
-  // Wait for the DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
-    // Select all buttons with class 'order-btn'
-    const buttons = document.querySelectorAll('.order-btn');
+      // Wait for the DOM to load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select all buttons with class 'order-btn'
+        const buttons = document.querySelectorAll('.order-btn');
+        const cartNotification = document.getElementById('cartNotification');
+        const notificationText = document.getElementById('notificationText');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-name');
-        const itemPrice = button.getAttribute('data-price');
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            
+            // Add item to cart
+            cartItems.push({ name: itemName, price: itemPrice });
+            
+            // Show notification
+            notificationText.textContent = `${itemName} added to cart!`;
+            cartNotification.classList.add('show');
+            
+            // Update button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#5cb85c';
+            
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.style.backgroundColor = '';
+            }, 2000);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+              cartNotification.classList.remove('show');
+            }, 3000);
+          });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById("searchInput");
+        const items = document.querySelectorAll(".menu-item");
 
-        const message = encodeURIComponent(
-          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
-        );
-
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        searchInput.addEventListener("input", () => {
+          const filter = searchInput.value.toLowerCase();
+          items.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(filter)) {
+              item.style.display = "block";
+              // Add a subtle animation when showing items
+              item.style.animation = "fadeIn 0.5s ease";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Order all items in cart
+        const orderOnlineBtn = document.querySelector('nav .btn');
+        orderOnlineBtn.addEventListener('click', (e) => {
+          if (cartItems.length > 0) {
+            e.preventDefault();
+            
+            let message = "Hello, I'd like to order:\n";
+            cartItems.forEach(item => {
+              message += `- ${item.name} (${item.price})\n`;
+            });
+            message += "\nThank you!";
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Clear cart after ordering
+            cartItems = [];
+          }
+        });
       });
-    });
-  });
-
-    const searchInput = document.getElementById("searchInput");
-  const items = document.querySelectorAll(".menu-item");
-
-  searchInput.addEventListener("input", () => {
-    const filter = searchInput.value.toLowerCase();
-    items.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "block" : "none";
-    });
-  });
-</script>
+    </script>
   </body>
 </html>
