@@ -110,9 +110,59 @@
         list-style: none;
       }
 
+      /* Image Optimization Styles */
       img {
         max-width: 100%;
         height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      img.lazy-loaded {
+        opacity: 1;
+      }
+
+      .logo-placeholder img {
+        opacity: 1; /* Logo should load immediately */
+      }
+
+      /* Loading States for Images */
+      .image-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 10px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      .image-loaded .image-loading {
+        display: none;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Critical above-the-fold content */
+      .critical-content {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
       }
 
       .btn {
@@ -300,6 +350,11 @@
         box-shadow: var(--shadow);
         position: relative;
         overflow: hidden;
+        position: relative;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .tab-btn::before {
@@ -328,6 +383,28 @@
         color: var(--secondary);
         position: relative;
         z-index: 1;
+      }
+
+      /* Background images for tabs with loading states */
+      .beverages-tab { background-image: url('./Resources/MenuTabItems/beverages.webp'); }
+      .drinks-tab { background-image: url('./Resources/MenuTabItems/coldbev.jpg'); }
+      .accompaniments-tab { background-image: url('./Resources/PicsToUpdate/ChipsBeef+SosaFries.jpg'); }
+      .breakfast-tab { background-image: url('./Resources/Menuitems/31\(2\).jpg'); }
+      .precookedvegetables-tab { background-image: url('./Resources/PicsToUpdate/Saga.jpg'); }
+      .vegie-tab { background-image: url('./Resources/Menuitems/2.jpg'); }
+      .fishy-tab { background-image: url('./Resources/MenuTabItems/fishygoodness.jpg'); }
+      .chicken-tab { background-image: url('./Resources/Menuitems/6.jpg'); }
+      .beef-tab { background-image: url('./Resources/Menuitems/49.jpg'); }
+      .fries-tab { background-image: url('./Resources/Menuitems/13.jpg'); }
+      .snackskieny-tab { background-image: url('./Resources/Menuitems/5.jpg'); }
+
+      /* Apply background styles to all tab buttons */
+      .tab-btn {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.7);
       }
 
       /* Footer Styles */
@@ -461,6 +538,15 @@
         transform: translateY(0);
       }
 
+      /* Performance optimizations */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       /* Responsive Styles */
       @media (max-width: 768px) {
         .header-container {
@@ -502,17 +588,23 @@
         .section-title h2 {
           font-size: 2rem;
         }
+
+        /* Reduce animation intensity on mobile */
+        .tab-btn:hover {
+          transform: translateY(-2px);
+        }
       }
     </style>
   </head>
   <body>
     <!-- Header Section -->
-    <header>
+    <header class="critical-content">
       <div class="container header-container">
         <div class="logo">
           <a href="index.html" class="logo">
             <div class="logo-placeholder">
-              <img src="./Resources/logo.png" alt="EATS" />
+              <!-- Logo loads immediately without lazy loading -->
+              <img src="./Resources/logo.png" alt="Taji Eats Logo" loading="eager" />
             </div>
           </a>
           <h1>Taji Eats</h1>
@@ -658,13 +750,62 @@
     </footer>
 
     <script>
-      // Mobile menu toggle
-      document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-        document.querySelector('nav ul').classList.toggle('show');
-      });
-
-      // Scroll animation for fade-in elements
+      // Image Optimization and Lazy Loading
       document.addEventListener('DOMContentLoaded', function() {
+        // Preload critical images
+        function preloadImage(url) {
+          const img = new Image();
+          img.src = url;
+        }
+
+        // Preload logo and critical images
+        preloadImage('./Resources/logo.png');
+
+        // Lazy load background images for menu tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        const backgroundObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const tab = entry.target;
+              // Background images will load naturally via CSS
+              // We just trigger the intersection
+              observer.unobserve(tab);
+            }
+          });
+        }, {
+          rootMargin: '50px 0px', // Load 50px before they come into view
+          threshold: 0.1
+        });
+
+        tabButtons.forEach(tab => {
+          backgroundObserver.observe(tab);
+        });
+
+        // Lazy load all regular images
+        const images = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.add('lazy-loaded');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        images.forEach(img => {
+          imageObserver.observe(img);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+          document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Scroll animation for fade-in elements
         const fadeElements = document.querySelectorAll('.fade-in');
         
         const fadeInOnScroll = function() {
@@ -683,6 +824,16 @@
         
         // Check on scroll
         window.addEventListener('scroll', fadeInOnScroll);
+
+        // Performance: Reduce animations if user prefers reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.style.setProperty('--transition', 'all 0.01ms ease');
+        }
+      });
+
+      // Load critical content immediately
+      window.addEventListener('load', function() {
+        document.querySelector('.critical-content').style.opacity = '1';
       });
     </script>
   </body>
