@@ -92,9 +92,54 @@
         list-style: none;
       }
 
+      /* Image Optimization Styles */
       img {
         max-width: 100%;
         height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      img.lazy-loaded {
+        opacity: 1;
+      }
+
+      .logo-placeholder img {
+        opacity: 1; /* Logo loads immediately */
+      }
+
+      /* Loading States */
+      .image-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Critical content */
+      .critical-content {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
       }
 
       .btn {
@@ -408,6 +453,7 @@
         overflow: hidden;
         box-shadow: var(--shadow);
         transition: var(--transition);
+        position: relative;
       }
 
       .about-image:hover {
@@ -419,6 +465,24 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      /* Loading state for about images */
+      .about-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        z-index: 1;
+      }
+
+      .about-image img.lazy-loaded + .about-image::before {
+        display: none;
       }
 
       /* Menu Section */
@@ -444,6 +508,10 @@
         box-shadow: var(--shadow);
         position: relative;
         overflow: hidden;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .tab-btn::before {
@@ -472,6 +540,25 @@
         color: var(--secondary);
         position: relative;
         z-index: 1;
+      }
+
+      /* Background images for tabs with loading optimization */
+      .eats-tab { 
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./Resources/Banner/taji.jpg') center/cover; 
+      }
+      .keki-tab { 
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./Resources/Banner/keki.jpg') center/cover; 
+      }
+      .water-tab { 
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./Resources/Banner/Taji water.jpg') center/cover; 
+      }
+      .bukusu-tab { 
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./Resources/Gallery/22.jpg') center/cover; 
+      }
+
+      .tab-btn span {
+        color: white;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.7);
       }
 
       /* Offers and Social Section */
@@ -823,6 +910,15 @@
         transform: translateY(0);
       }
 
+      /* Performance optimizations */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       /* Responsive Styles */
       @media (max-width: 768px) {
         .header-container {
@@ -881,17 +977,27 @@
         .section-title h2 {
           font-size: 2rem;
         }
+
+        /* Reduce animation intensity on mobile */
+        .tab-btn:hover {
+          transform: translateY(-2px);
+        }
+        
+        .about-image {
+          width: 250px;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Header -->
-    <header>
+    <header class="critical-content">
       <div class="container header-container">
         <div class="logo">
           <a href="index.html" class="logo">
             <div class="logo-placeholder">
-              <img src="./Resources/logo.png" alt="EATS" />
+              <!-- Logo loads immediately -->
+              <img src="./Resources/logo.png" alt="Taji Eats Logo" loading="eager" />
             </div>
           </a>
           <h1>Taji Three in One</h1>
@@ -917,7 +1023,7 @@
     <section class="hero" id="home">
       <div class="container hero-content">
         <h1>Authentic Kenyan Cuisine</h1>
-        <p>TAJI Eats, Taji Water, Keki na Taji</p>
+        <p>TAJI Eats, Taji Water, Keki na Taji</p>
         
         <div class="hero-btns">
           <a href="https://maps.app.goo.gl/PxqeoDxhiTRg9Y68A" class="btn" target="_blank">
@@ -926,7 +1032,8 @@
           <a href="https://maps.app.goo.gl/SkqeWXCGNsGyzEnc9" class="btn btn-secondary" target="_blank">Find us in Kisumu</a>
         </div>
         <div class="hero-image">
-          <img src="./Resources/logo.png" alt="Taji Eats" />
+          <!-- Hero image loads immediately -->
+          <img src="./Resources/logo.png" alt="Taji Eats" loading="eager" />
         </div>
       </div>
     </section>
@@ -949,47 +1056,48 @@
           </div>
 
           <div class="about-images-scroll">
+            <!-- Gallery images with lazy loading -->
             <div class="about-image">
-              <img src="./Resources/Gallery/2.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/2.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/3.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/3.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/1.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/1.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/7.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/7.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/8.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/8.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/9.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/9.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/10.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/10.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/12.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/12.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/13.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/13.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/14.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/14.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/15.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/15.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/16.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/16.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/17.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/17.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
             <div class="about-image">
-              <img src="./Resources/Gallery/18.jpg" alt="Taji Eats Gallery">
+              <img data-src="./Resources/Gallery/18.jpg" alt="Taji Eats Gallery" loading="lazy" />
             </div>
           </div>
         </div>
