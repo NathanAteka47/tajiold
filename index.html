@@ -34,6 +34,13 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="./Resources/logo.png" />
+    <link rel="preload" as="image" href="./Resources/Banner/taji.jpg" />
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://img.icons8.com" />
   </head>
   <body>
     <!-- Header -->
@@ -42,7 +49,7 @@
         <div class="logo">
     <a href="index.html" class="logo">
       <div class="logo-placeholder">
-        <img src="./Resources/logo.png" alt="EATS" />
+        <img src="./Resources/logo.png" alt="EATS" loading="eager" width="50" height="50">
       </div>
     </a>
           <h1>Taji Three in One</h1>
@@ -76,7 +83,7 @@
 </a>
           <a href="https://maps.app.goo.gl/SkqeWXCGNsGyzEnc9" class="btn btn-secondary" target="_blank">Find us in Kisumu</a>
           <div class="hero-image">
-          <img src="./Resources/logo.png" alt="Taji Eats" />
+          <img src="./Resources/logo.png" alt="Taji Eats" loading="eager" width="200" height="200">
           </div>
         </div>
       </div>
@@ -111,7 +118,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/2.jpg" alt="">
+              <img src="./Resources/Gallery/2.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
             <div class="about-image">
@@ -126,7 +133,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/3.jpg" alt="">
+              <img src="./Resources/Gallery/3.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="about-image">
@@ -141,7 +148,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/1.jpg" alt="">
+              <img src="./Resources/Gallery/1.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
                       <div class="about-image">
@@ -156,7 +163,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/7.jpg" alt="">
+              <img src="./Resources/Gallery/7.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
             <div class="about-image">
@@ -171,7 +178,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/8.jpg" alt="">
+              <img src="./Resources/Gallery/8.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="about-image">
@@ -186,7 +193,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/9.jpg" alt="">
+              <img src="./Resources/Gallery/9.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
                       <div class="about-image">
@@ -201,7 +208,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/10.jpg" alt="">
+              <img src="./Resources/Gallery/10.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="about-image">
@@ -216,7 +223,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/12.jpg" alt="">
+              <img src="./Resources/Gallery/12.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
                       <div class="about-image">
@@ -231,7 +238,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/13.jpg" alt="">
+              <img src="./Resources/Gallery/13.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
             <div class="about-image">
@@ -246,7 +253,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/14.jpg" alt="">
+              <img src="./Resources/Gallery/14.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="about-image">
@@ -261,7 +268,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/15.jpg" alt="">
+              <img src="./Resources/Gallery/15.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
                       <div class="about-image">
@@ -276,7 +283,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/16.jpg" alt="">
+              <img src="./Resources/Gallery/16.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
             <div class="about-image">
@@ -291,7 +298,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/17.jpg" alt="">
+              <img src="./Resources/Gallery/17.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="about-image">
@@ -306,7 +313,7 @@
                 font-weight: bold;
               "
             >
-              <img src="./Resources/Gallery/18.jpg" alt="">
+              <img src="./Resources/Gallery/18.jpg" alt="Taji Gallery" loading="lazy" decoding="async">
             </div>
           </div>
           </div>
@@ -351,14 +358,23 @@
     <div class="offers-gallery">
       <h2>Current Offers</h2>
       <div class="gallery-grid">
-        <img src="./Resources/Offers/partyPackages.jpg" alt="Offer 1">
-        <img src="./Resources/Offers/Fishy-goodness.png" alt="Offer 1">
-        <img src="./Resources/Offers/alert.png" alt="Offer 1">
-        <img src="./Resources/Offers/vibes.png" alt="Offer 1">
-        <img src="./Resources/Offers/Vegie Deal Alert.png" alt="Offer 1">
-        <img src="./Resources/Offers/juice.jpg" alt="Offer 1">
-        <img src="./Resources/Offers/call.jpg" alt="Offer 2">
-        <img src="./Resources/Offers/delivery.jpg" alt="Offer 1">
+        <img src="./Resources/Offers/partyPackages.jpg" alt="Party Packages Offer" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./Resources/Offers/Fishy-goodness.webp" type="image/webp">
+          <img src="./Resources/Offers/Fishy-goodness.png" alt="Fishy Goodness Offer" loading="lazy" decoding="async">
+        </picture>
+        <img src="./Resources/Offers/alert.png" alt="Special Alert" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./Resources/Offers/vibes.webp" type="image/webp">
+          <img src="./Resources/Offers/vibes.png" alt="Vibes Offer" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="./Resources/Offers/Vegie Deal Alert.webp" type="image/webp">
+          <img src="./Resources/Offers/Vegie Deal Alert.png" alt="Vegie Deal Alert" loading="lazy" decoding="async">
+        </picture>
+        <img src="./Resources/Offers/juice.jpg" alt="Juice Offer" loading="lazy" decoding="async">
+        <img src="./Resources/Offers/call.jpg" alt="Call Us" loading="lazy" decoding="async">
+        <img src="./Resources/Offers/delivery.jpg" alt="Delivery Service" loading="lazy" decoding="async">
 
         <!-- You can add or remove <img> tags as offers change -->
       </div>
