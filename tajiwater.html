@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Taji Water | Premium Bottled Water in Kenya</title>
-   <meta name="description" content="Stay hydrated with Taji Water – oxygen-rich bottled water from Taji Eats. Refreshing, affordable, and available in multiple sizes across Bungoma.">
-   <meta name="keywords" content="Taji Water, bottled water Kenya, Bungoma water, mineral water, Kenyan water brand, Taji Eats beverages, water for restaurants">
-   <meta name="author" content="Taji Eats">
-   <meta name="robots" content="index, follow">
+    <title>Taji Water | Premium Bottled Water in Kenya</title>
+    <meta name="description" content="Stay hydrated with Taji Water – oxygen-rich bottled water from Taji Eats. Refreshing, affordable, and available in multiple sizes across Bungoma.">
+    <meta name="keywords" content="Taji Water, bottled water Kenya, Bungoma water, mineral water, Kenyan water brand, Taji Eats beverages, water for restaurants">
+    <meta name="author" content="Taji Eats">
+    <meta name="robots" content="index, follow">
     <!-- Open Graph Meta Tags for Social Sharing -->
-<meta property="og:title" content="Taji Water | Premium Bottled Water Kenya" />
-<meta property="og:description" content="Enjoy traditional Kenyan dishes, bottled water, and custom cakes at Taji Eats. Fusion of culture and flavor in Bungoma." />
-<meta property="og:image" content="https://www.tajithreeinone.com/Resources/taji-preview.jpg" />
-<meta property="og:url" content="https://www.tajithreeinone.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Taji Eats" />
+    <meta property="og:title" content="Taji Water | Premium Bottled Water Kenya" />
+    <meta property="og:description" content="Enjoy traditional Kenyan dishes, bottled water, and custom cakes at Taji Eats. Fusion of culture and flavor in Bungoma." />
+    <meta property="og:image" content="https://www.tajithreeinone.com/Resources/taji-preview.jpg" />
+    <meta property="og:url" content="https://www.tajithreeinone.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taji Eats" />
 
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Taji Eats | Authentic Kenyan Cuisine" />
-<meta name="twitter:description" content="Fusion of tradition and modern taste. Come explore Bungoma's top spot for Kenyan food, water, and cakes." />
-<meta name="twitter:image" content="https://www.tajithreeinone.com/Resources/taji-preview.jpg" />
-<meta name="twitter:site" content="@tajieats" />
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taji Eats | Authentic Kenyan Cuisine" />
+    <meta name="twitter:description" content="Fusion of tradition and modern taste. Come explore Bungoma's top spot for Kenyan food, water, and cakes." />
+    <meta name="twitter:image" content="https://www.tajithreeinone.com/Resources/taji-preview.jpg" />
+    <meta name="twitter:site" content="@tajieats" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -30,21 +30,358 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="tajiwater.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
+    <style>
+      /* Additional styles specific to water page */
+      .search-container {
+        background-color: var(--primary);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .search-input {
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        outline: none;
+      }
+      
+      .search-input:focus {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .menu-image {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .menu-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .menu-item:hover .menu-image img {
+        transform: scale(1.1);
+      }
+      
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .menu-item:hover .image-overlay {
+        transform: translateY(0);
+      }
+      
+      .order-btn {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .order-btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .price-tag {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+      
+      .menu-category {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .menu-category h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .menu-category h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+        transition: width 0.5s ease;
+      }
+      
+      .menu-category:hover h2::after {
+        width: 120px;
+      }
+      
+      .menu-category p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* Cart notification */
+      .cart-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+      
+      .cart-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .cart-icon {
+        font-size: 1.2rem;
+      }
+      
+      /* Water-specific styling */
+      .water-item {
+        border-left: 4px solid #4488ff;
+      }
+      
+      .small-water {
+        border-left: 4px solid #44aaff;
+      }
+      
+      .large-water {
+        border-left: 4px solid #2266cc;
+      }
+      
+      .water-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #4488ff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        z-index: 2;
+      }
+      
+      .size-badge {
+        background-color: #44aaff;
+      }
+      
+      .bulk-badge {
+        background-color: #2266cc;
+      }
+      
+      /* Water size indicators */
+      .water-size {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      
+      .size-indicator {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+      
+      .price-indicator {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      
+      /* Refill section */
+      .refill-section {
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 3rem 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+      
+      .refill-section h3 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+      
+      .refill-prices {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .refill-price-item {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+      
+      .refill-price-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .refill-price-item p {
+        margin: 0;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      
+      /* Loading animation for images */
+      .menu-image {
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .menu-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      /* Water filter buttons */
+      .water-filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      
+      .filter-btn {
+        background-color: white;
+        border: 2px solid #4488ff;
+        color: #4488ff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 500;
+      }
+      
+      .filter-btn:hover, .filter-btn.active {
+        background-color: #4488ff;
+        color: white;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .search-input {
+          width: 80%;
+        }
+        
+        .menu-category h2 {
+          font-size: 2rem;
+        }
+        
+        .water-filters {
+          gap: 5px;
+        }
+        
+        .filter-btn {
+          padding: 6px 12px;
+          font-size: 0.9rem;
+        }
+        
+        .refill-prices {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .search-input {
+          width: 90%;
+        }
+        
+        .menu-category h2 {
+          font-size: 1.8rem;
+        }
+        
+        .menu-category p {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
-          <!-- Header Section -->
+  <body>
+    <!-- Header Section -->
     <header>
-    <div class="container header-container">
+      <div class="container header-container">
         <div class="logo">
-    <a href="index.html" class="logo">
-      <div class="logo-placeholder">
-        <img src="./Resources/TajiWaterlogo.png" alt="EATS" />
-      </div>
-    </a>
+          <a href="index.html" class="logo">
+            <div class="logo-placeholder">
+              <img src="./Resources/TajiWaterlogo.png" alt="Taji Water" />
+            </div>
+          </a>
           <h1>Taji Water</h1>
         </div>
-                <nav>
+        <nav>
           <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
           </button>
@@ -53,127 +390,161 @@
             <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
           </ul>
         </nav>
-    </div>
+      </div>
     </header>
-            <!-- Search Bar -->
-<div class="search-container" style="padding: 1rem; text-align: center;">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search for water size..."
-    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
-  />
-</div>
-<!-- Menu Items -->
-      <section id="menu" style="background-color: var(--background)">
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="container" style="text-align: center;">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for water size..."
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <!-- Menu section -->
+    <section id="menu" style="background-color: var(--background); padding: 3rem 0;">
       <div class="container">
-        <div class="section-title">
+        <div class="menu-category fade-in">
           <h2>Taji Water</h2>
+          <p>Premium oxygen-rich bottled water for hydration and wellness</p>
         </div>
+        
+        <!-- Water Filters -->
+        <div class="water-filters fade-in">
+          <button class="filter-btn active" data-filter="all">All Sizes</button>
+          <button class="filter-btn" data-filter="small">Small Bottles</button>
+          <button class="filter-btn" data-filter="large">Large Bottles</button>
+        </div>
+        
         <div class="menu-grid">
 
-<!-- Bottled Water (500ml) -->
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-      <img src="./Resources/Water/1.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Bottle water (500ml)</h3>
-    <p>Chilled bottled mineral water.</p>
-    <div class="menu-price">
-      <span class="price">KSh 70</span>
-      <button class="btn order-btn" data-name="Bottle water (500ml)" data-price="KSh 70">Add to Order</button>
-    </div>
-  </div>
-</div>
+          <!-- Bottled Water (500ml) -->
+          <div class="menu-item fade-in small-water" data-category="small">
+            <div class="water-badge size-badge">500ml</div>
+            <div class="menu-image">
+              <img src="./Resources/Water/1.jpg" alt="Bottled Water 500ml">
+              <div class="image-overlay">500ml Bottle</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bottled Water (500ml)</h3>
+              <p><span class="water-size size-indicator">Personal Size</span> Chilled bottled mineral water, perfect for individual hydration.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 70</span>
+                <button class="order-btn" data-name="Bottled Water (500ml)" data-price="KSh 70">Add to Order</button>
+              </div>
+            </div>
+          </div>
 
-<!-- Bottled Water (1L) -->
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
-      <img src="./Resources/Water/8.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Bottle water (1 litre)</h3>
-    <p>Large chilled bottled mineral water.</p>
-    <div class="menu-price">
-      <span class="price">KSh 100</span>
-      <button class="btn order-btn" data-name="Bottle water (1 litre)" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
+          <!-- Bottled Water (1L) -->
+          <div class="menu-item fade-in small-water" data-category="small">
+            <div class="water-badge size-badge">1 Litre</div>
+            <div class="menu-image">
+              <img src="./Resources/Water/8.jpg" alt="Bottled Water 1 Litre">
+              <div class="image-overlay">1 Litre Bottle</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bottled Water (1 Litre)</h3>
+              <p><span class="water-size size-indicator">Standard Size</span> Large chilled bottled mineral water for extended hydration.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Bottled Water (1 Litre)" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
 
-<!-- Bottled Water (5L) -->
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
-      <img src="./Resources/Water/3.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Bottle water (5 litres)</h3>
-    <p>Large chilled bottled mineral water.</p>
-    <div class="menu-price">
-      <span class="price">KSh 500</span>
-      <button class="btn order-btn" data-name="Bottle water (5 litres)" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
+          <!-- Bottled Water (5L) -->
+          <div class="menu-item fade-in large-water" data-category="large">
+            <div class="water-badge bulk-badge">5 Litres</div>
+            <div class="menu-image">
+              <img src="./Resources/Water/3.jpg" alt="Bottled Water 5 Litres">
+              <div class="image-overlay">5 Litre Bottle</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bottled Water (5 Litres)</h3>
+              <p><span class="water-size size-indicator">Family Size</span> Large chilled bottled mineral water perfect for families and small gatherings.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 500</span>
+                <button class="order-btn" data-name="Bottled Water (5 Litres)" data-price="KSh 500">Add to Order</button>
+              </div>
+            </div>
+          </div>
 
-<!-- Bottled Water (10L) -->
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
-      <img src="./Resources/Water/2.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Bottle water (10 litre)</h3>
-    <p>Large chilled bottled mineral water.</p>
-    <div class="menu-price">
-      <span class="price">KSh 1000</span>
-      <button class="btn order-btn" data-name="Bottle water (10 litres)" data-price="KSh 1000">Add to Order</button>
-    </div>
-  </div>
-</div>
+          <!-- Bottled Water (10L) -->
+          <div class="menu-item fade-in large-water" data-category="large">
+            <div class="water-badge bulk-badge">10 Litres</div>
+            <div class="menu-image">
+              <img src="./Resources/Water/2.jpg" alt="Bottled Water 10 Litres">
+              <div class="image-overlay">10 Litre Bottle</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bottled Water (10 Litres)</h3>
+              <p><span class="water-size size-indicator">Office Size</span> Large chilled bottled mineral water ideal for offices and medium events.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 1,000</span>
+                <button class="order-btn" data-name="Bottled Water (10 Litres)" data-price="KSh 1000">Add to Order</button>
+              </div>
+            </div>
+          </div>
 
-<!-- Bottled Water (20L) -->
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #BCA997; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold;">
-      <img src="./Resources/Water/5.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Bottle water (20 litre)</h3>
-    <p>Large chilled bottled mineral water.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2000</span>
-      <button class="btn order-btn" data-name="Bottle water (20 litre)" data-price="KSh 2000">Add to Order</button>
-    </div>
-  </div>
-</div>
-</div>
-<div class="menu-item">
-  <div class="menu-details">
-  <h3>Water Refilling Prices</h3>
-  <p>1L bottle @ Ksh 10</p>
-  <p>5L bottle @ Ksh 50</p>
-  <p>10L bottle @ Ksh 100</p>
-  <p>20L bottle @ Ksh 200</p>
-  </div>
-</div>
-      
+          <!-- Bottled Water (20L) -->
+          <div class="menu-item fade-in large-water" data-category="large">
+            <div class="water-badge bulk-badge">20 Litres</div>
+            <div class="menu-image">
+              <img src="./Resources/Water/5.jpg" alt="Bottled Water 20 Litres">
+              <div class="image-overlay">20 Litre Bottle</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bottled Water (20 Litres)</h3>
+              <p><span class="water-size size-indicator">Commercial Size</span> Large chilled bottled mineral water perfect for restaurants, events, and large families.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,000</span>
+                <button class="order-btn" data-name="Bottled Water (20 Litres)" data-price="KSh 2000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <!-- Refill Section -->
+        <div class="refill-section fade-in">
+          <h3>Water Refilling Service</h3>
+          <p>Bring your empty Taji Water bottles for refilling at these affordable prices:</p>
+          <div class="refill-prices">
+            <div class="refill-price-item">
+              <p><span class="water-size size-indicator">1L Bottle</span> @ KSh 10</p>
+            </div>
+            <div class="refill-price-item">
+              <p><span class="water-size size-indicator">5L Bottle</span> @ KSh 50</p>
+            </div>
+            <div class="refill-price-item">
+              <p><span class="water-size size-indicator">10L Bottle</span> @ KSh 100</p>
+            </div>
+            <div class="refill-price-item">
+              <p><span class="water-size size-indicator">20L Bottle</span> @ KSh 200</p>
+            </div>
+          </div>
+          <p style="margin-top: 1.5rem; font-style: italic; color: #666;">
+            Eco-friendly and cost-effective - reduce waste and save money with our refill service!
+          </p>
+        </div>
+      </div>
     </section>
 
-<!-- Footer -->
-      <footer>
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+      <i class="fas fa-shopping-cart cart-icon"></i>
+      <span id="notificationText">Water added to cart!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
       <div class="container">
         <div class="footer-container">
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Taji Eats</h3>
             <p>Tradition Meets Modernity</p>
             <p>
@@ -184,22 +555,22 @@
             </div>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="./index.html">Home</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Opening Hours</h3>
             <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
-<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Sunday: 9.30 am - 9.30 pm</p>
             <p>Open all holidays</p>
             <p>Reservations recommended for groups of 6+</p>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Newsletter</h3>
             <p>Subscribe to our newsletter for special offers and updates.</p>
             <form>
@@ -216,42 +587,149 @@
         </div>
       </div>
     </footer>
-            <!-- JS of order buttons -->
+
+    <!-- JS of order buttons -->
     <script>
-  // Phone number to send to
-  const phoneNumber = '254713195195';
+      // Phone number to send to
+      const phoneNumber = '254713195195';
+      
+      // Cart items array
+      let cartItems = [];
 
-  // Wait for the DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
-    // Select all buttons with class 'order-btn'
-    const buttons = document.querySelectorAll('.order-btn');
+      // Wait for the DOM to load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select all buttons with class 'order-btn'
+        const buttons = document.querySelectorAll('.order-btn');
+        const cartNotification = document.getElementById('cartNotification');
+        const notificationText = document.getElementById('notificationText');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-name');
-        const itemPrice = button.getAttribute('data-price');
+        // Order button functionality
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            
+            // Add item to cart
+            cartItems.push({ name: itemName, price: itemPrice });
+            
+            // Show notification
+            notificationText.textContent = `${itemName} added to cart!`;
+            cartNotification.classList.add('show');
+            
+            // Update button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#5cb85c';
+            
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.style.backgroundColor = '';
+            }, 2000);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+              cartNotification.classList.remove('show');
+            }, 3000);
+          });
+        });
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter items
+            menuItems.forEach(item => {
+              if (filter === 'all') {
+                item.style.display = 'block';
+              } else {
+                const category = item.getAttribute('data-category');
+                if (category === filter) {
+                  item.style.display = 'block';
+                } else {
+                  item.style.display = 'none';
+                }
+              }
+              
+              // Add animation when showing items
+              if (item.style.display === 'block') {
+                item.style.animation = 'fadeIn 0.5s ease';
+              }
+            });
+          });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById("searchInput");
 
-        const message = encodeURIComponent(
-          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
-        );
-
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        searchInput.addEventListener("input", () => {
+          const filter = searchInput.value.toLowerCase();
+          menuItems.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(filter)) {
+              item.style.display = "block";
+              // Add a subtle animation when showing items
+              item.style.animation = "fadeIn 0.5s ease";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Order all items in cart
+        const orderOnlineBtn = document.querySelector('nav .btn');
+        orderOnlineBtn.addEventListener('click', (e) => {
+          if (cartItems.length > 0) {
+            e.preventDefault();
+            
+            let message = "Hello, I'd like to order the following water products:\n";
+            cartItems.forEach(item => {
+              message += `- ${item.name} (${item.price})\n`;
+            });
+            message += "\nThank you!";
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Clear cart after ordering
+            cartItems = [];
+          }
+        });
       });
-    });
-  });
-  
-  
-    const searchInput = document.getElementById("searchInput");
-  const items = document.querySelectorAll(".menu-item");
-
-  searchInput.addEventListener("input", () => {
-    const filter = searchInput.value.toLowerCase();
-    items.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "block" : "none";
-    });
-  });
-</script>
+    </script>
   </body>
 </html>
