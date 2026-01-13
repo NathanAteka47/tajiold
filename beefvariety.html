@@ -14,19 +14,245 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/logo.png" />
+    <style>
+      /* Additional styles specific to this page */
+      .search-container {
+        background-color: var(--primary);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .search-input {
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        outline: none;
+      }
+      
+      .search-input:focus {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .menu-image {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .menu-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .menu-item:hover .menu-image img {
+        transform: scale(1.1);
+      }
+      
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .menu-item:hover .image-overlay {
+        transform: translateY(0);
+      }
+      
+      .order-btn {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .order-btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .price-tag {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+      
+      .menu-category {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .menu-category h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .menu-category h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+        transition: width 0.5s ease;
+      }
+      
+      .menu-category:hover h2::after {
+        width: 120px;
+      }
+      
+      .menu-category p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* Cart notification */
+      .cart-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+      
+      .cart-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .cart-icon {
+        font-size: 1.2rem;
+      }
+      
+      /* Premium badge for special items */
+      .premium-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--accent);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        z-index: 2;
+      }
+      
+      /* Loading animation for images */
+      .menu-image {
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .menu-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      /* Beef-specific styling */
+      .beef-item {
+        border-left: 4px solid var(--primary);
+      }
+      
+      .beef-premium {
+        border-left: 4px solid var(--accent);
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .search-input {
+          width: 80%;
+        }
+        
+        .menu-category h2 {
+          font-size: 2rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .search-input {
+          width: 90%;
+        }
+        
+        .menu-category h2 {
+          font-size: 1.8rem;
+        }
+        
+        .menu-category p {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
-        <!-- Header Section -->
+  <body>
+    <!-- Header Section -->
     <header>
-    <div class="container header-container">
+      <div class="container header-container">
         <div class="logo">
-    <a href="index.html" class="logo">
-      <div class="logo-placeholder">
-        <img src="./Resources/logo.png" alt="EATS" />
-      </div>
-    </a>
+          <a href="index.html" class="logo">
+            <div class="logo-placeholder">
+              <img src="./Resources/logo.png" alt="EATS" />
+            </div>
+          </a>
           <h1>Beef Variety</h1>
         </div>
-                <nav>
+        <nav>
           <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
           </button>
@@ -36,154 +262,162 @@
             <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
           </ul>
         </nav>
-    </div>
+      </div>
     </header>
-            <!-- Search Bar -->
-<div class="search-container" style="padding: 1rem; text-align: center;">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search for food items..."
-    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
-  />
-</div>
-<!-- Menu Items -->
-<section id="menu" style="background-color: var(--background)">
-  <div class="container">
-    <div class="section-title">
-      <h2>BEEF VARIETY</h2>
-      <p>Premium beef dishes prepared with traditional techniques</p>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="container" style="text-align: center;">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for beef dishes..."
+          class="search-input"
+        />
+      </div>
     </div>
-    <div class="menu-grid">
 
-      <!-- Grandma Style Beef -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #8B0000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/57.jpg" alt="">
-          </div>
+    <!-- Menu section -->
+    <section id="menu" style="background-color: var(--background); padding: 3rem 0;">
+      <div class="container">
+        <div class="menu-category fade-in">
+          <h2>BEEF VARIETY</h2>
+          <p>Premium beef dishes prepared with traditional techniques</p>
         </div>
-        <div class="menu-details">
-          <h3>Grandma Style Beef</h3>
-          <p>Tenderly done beef cooked in a clay pot with a hint of munyu mushelekha</p>
-          <div class="menu-price">
-            <span class="price">KSh 400</span>
-            <button class="btn order-btn" data-name="Grandma Style Beef" data-price="KSh 400">Add to Order</button>
+        <div class="menu-grid">
+
+          <!-- Grandma Style Beef -->
+          <div class="menu-item fade-in beef-item">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/57.jpg" alt="Grandma Style Beef">
+              <div class="image-overlay">Grandma Style Beef</div>
+            </div>
+            <div class="menu-details">
+              <h3>Grandma Style Beef</h3>
+              <p>Tenderly done beef cooked in a clay pot with a hint of munyu mushelekha</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 400</span>
+                <button class="order-btn" data-name="Grandma Style Beef" data-price="KSh 400">Add to Order</button>
+              </div>
+            </div>
           </div>
+
+          <!-- Wet Fry Beef -->
+          <div class="menu-item fade-in beef-item">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/48.jpg" alt="Wet Fry Beef">
+              <div class="image-overlay">Wet Fry Beef</div>
+            </div>
+            <div class="menu-details">
+              <h3>Wet Fry Beef</h3>
+              <p>Juicy beef simmered in rich gravy</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 400</span>
+                <button class="order-btn" data-name="Wet Fry Beef" data-price="KSh 400">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panfried Beef -->
+          <div class="menu-item fade-in beef-premium">
+            <div class="premium-badge">Premium</div>
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/49.jpg" alt="Panfried Beef">
+              <div class="image-overlay">Panfried Beef</div>
+            </div>
+            <div class="menu-details">
+              <h3>Panfried Beef</h3>
+              <p>Beef perfectly seared to caramelized perfection</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 500</span>
+                <button class="order-btn" data-name="Panfried Beef" data-price="KSh 500">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aliya -->
+          <div class="menu-item fade-in beef-premium">
+            <div class="premium-badge">Traditional</div>
+            <div class="menu-image">
+              <img src="./Resources/PicsToUpdate/aliya.jpg" alt="Aliya">
+              <div class="image-overlay">Aliya</div>
+            </div>
+            <div class="menu-details">
+              <h3>Aliya</h3>
+              <p>Stewed sun-dried beef cooked with milk and Mor Aienya. Cooked with traditional Milk Ghee</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 500</span>
+                <button class="order-btn" data-name="Aliya" data-price="KSh 500">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orenge / Silenge -->
+          <div class="menu-item fade-in beef-item">
+            <div class="menu-image">
+              <img src="./Resources/PicsToUpdate/SilengeOrengeUgali.jpg" alt="Orenge / Silenge">
+              <div class="image-overlay">Orenge / Silenge</div>
+            </div>
+            <div class="menu-details">
+              <h3>Orenge / Silenge</h3>
+              <p>Cow legs - Traditional delicacy</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 250</span>
+                <button class="order-btn" data-name="Orenge / Silenge" data-price="KSh 250">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wet Fried Orenge / Silenge -->
+          <div class="menu-item fade-in beef-item">
+            <div class="menu-image">
+              <img src="./Resources/PicsToUpdate/SilengeOrengeUgali (2).jpg" alt="Wet Fried Orenge / Silenge">
+              <div class="image-overlay">Wet Fried Orenge / Silenge</div>
+            </div>
+            <div class="menu-details">
+              <h3>Wet Fried Orenge / Silenge</h3>
+              <p>Cow legs in rich savory gravy</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 300</span>
+                <button class="order-btn" data-name="Wet Fried Orenge/Silenge" data-price="KSh 300">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Liver -->
+          <div class="menu-item fade-in beef-premium">
+            <div class="premium-badge">Nutrient-Rich</div>
+            <div class="menu-image">
+              <div style="background-color: #B22222; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                Beef Liver
+              </div>
+              <div class="image-overlay">Beef Liver</div>
+            </div>
+            <div class="menu-details">
+              <h3>Beef Liver</h3>
+              <p>Nutrient-rich beef liver perfectly cooked to preserve flavor and nutrients</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 500</span>
+                <button class="order-btn" data-name="Beef Liver" data-price="KSh 500">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- Wet Fry Beef -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #A52A2A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/48.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Wet Fry Beef</h3>
-          <p>Juicy beef simmered in rich gravy</p>
-          <div class="menu-price">
-            <span class="price">KSh 400</span>
-            <button class="btn order-btn" data-name="Wet Fry Beef" data-price="KSh 400">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panfried Beef -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #800000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/49.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Panfried Beef</h3>
-          <p>Beef perfectly seared to caramelized perfection</p>
-          <div class="menu-price">
-            <span class="price">KSh 500</span>
-            <button class="btn order-btn" data-name="Panfried Beef" data-price="KSh 500">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aliya -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #654321; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/PicsToUpdate/aliya.jpg" alt="AliyaPic">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Aliya</h3>
-          <p>Stewed sun-dried beef cooked with milk and Mor Aienya.Cooked with traditional Milk Ghee</p>
-          <div class="menu-price">
-            <span class="price">KSh 500</span>
-            <button class="btn order-btn" data-name="Aliya" data-price="KSh 500">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Orenge / Silenge -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #FF8C00; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/PicsToUpdate/SilengeOrengeUgali.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Orenge / Silenge</h3>
-          <p>Cow legs</p>
-          <div class="menu-price">
-            <span class="price">KSh 250</span>
-            <button class="btn order-btn" data-name="Orenge / Silenge" data-price="KSh 250">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wet Fried Orenge / Silenge -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #FF4500; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/PicsToUpdate/SilengeOrengeUgali (2).jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Wet Fried Orenge / Silenge</h3>
-          <p>Cow Legs</p>
-          <div class="menu-price">
-            <span class="price">KSh 300</span>
-            <button class="btn order-btn" data-name="Wet Fried Orenge/Silenge" data-price="KSh 300">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Liver -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #B22222; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            Beef Liver
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Beef Liver</h3>
-          <p>Nutrient-rich beef liver perfectly cooked</p>
-          <div class="menu-price">
-            <span class="price">KSh 500</span>
-            <button class="btn order-btn" data-name="Beef Liver" data-price="KSh 500">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+      <i class="fas fa-shopping-cart cart-icon"></i>
+      <span id="notificationText">Item added to cart!</span>
     </div>
-  </div>
-</section>
 
     <!-- Footer -->
-      <footer>
+    <footer>
       <div class="container">
         <div class="footer-container">
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Taji Eats</h3>
             <p>Tradition Meets Modernity</p>
             <p>
@@ -194,22 +428,22 @@
             </div>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="./index.html">Home</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Opening Hours</h3>
             <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
-<p>Sunday: 9.30 am - 9.30 pm</p>
+            <p>Sunday: 9.30 am - 9.30 pm</p>
             <p>Open all holidays</p>
             <p>Reservations recommended for groups of 6+</p>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Newsletter</h3>
             <p>Subscribe to our newsletter for special offers and updates.</p>
             <form>
@@ -226,42 +460,117 @@
         </div>
       </div>
     </footer>
-        <!-- JS of order buttons -->
+
+    <!-- JS of order buttons -->
     <script>
-  // Phone number to send to
-  const phoneNumber = '254713195195';
+      // Phone number to send to
+      const phoneNumber = '254713195195';
+      
+      // Cart items array
+      let cartItems = [];
 
-  // Wait for the DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
-    // Select all buttons with class 'order-btn'
-    const buttons = document.querySelectorAll('.order-btn');
+      // Wait for the DOM to load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select all buttons with class 'order-btn'
+        const buttons = document.querySelectorAll('.order-btn');
+        const cartNotification = document.getElementById('cartNotification');
+        const notificationText = document.getElementById('notificationText');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-name');
-        const itemPrice = button.getAttribute('data-price');
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            
+            // Add item to cart
+            cartItems.push({ name: itemName, price: itemPrice });
+            
+            // Show notification
+            notificationText.textContent = `${itemName} added to cart!`;
+            cartNotification.classList.add('show');
+            
+            // Update button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#5cb85c';
+            
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.style.backgroundColor = '';
+            }, 2000);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+              cartNotification.classList.remove('show');
+            }, 3000);
+          });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById("searchInput");
+        const items = document.querySelectorAll(".menu-item");
 
-        const message = encodeURIComponent(
-          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
-        );
-
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        searchInput.addEventListener("input", () => {
+          const filter = searchInput.value.toLowerCase();
+          items.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(filter)) {
+              item.style.display = "block";
+              // Add a subtle animation when showing items
+              item.style.animation = "fadeIn 0.5s ease";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Order all items in cart
+        const orderOnlineBtn = document.querySelector('nav .btn');
+        orderOnlineBtn.addEventListener('click', (e) => {
+          if (cartItems.length > 0) {
+            e.preventDefault();
+            
+            let message = "Hello, I'd like to order the following beef dishes:\n";
+            cartItems.forEach(item => {
+              message += `- ${item.name} (${item.price})\n`;
+            });
+            message += "\nThank you!";
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Clear cart after ordering
+            cartItems = [];
+          }
+        });
       });
-    });
-  });
-
-  
-    const searchInput = document.getElementById("searchInput");
-  const items = document.querySelectorAll(".menu-item");
-
-  searchInput.addEventListener("input", () => {
-    const filter = searchInput.value.toLowerCase();
-    items.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "block" : "none";
-    });
-  });
-</script>
+    </script>
   </body>
 </html>

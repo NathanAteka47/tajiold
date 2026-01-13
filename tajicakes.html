@@ -9,19 +9,19 @@
     <meta name="author" content="Taji Cakes">
     <meta name="robots" content="index, follow">
     <!-- Open Graph Meta Tags for Social Sharing -->
-<meta property="og:title" content="Taji Cakes | Handmade Custom Cakes" />
-<meta property="og:description" content="Enjoy traditional Kenyan dishes, bottled water, and custom cakes at Taji Eats. Fusion of culture and flavor in Bungoma and Kisumu." />
-<meta property="og:image" content="https://www.tajithreeinone.com/Resources/keki.jpg" />
-<meta property="og:url" content="https://www.tajithreeinone.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Taji Eats" />
+    <meta property="og:title" content="Taji Cakes | Handmade Custom Cakes" />
+    <meta property="og:description" content="Enjoy traditional Kenyan dishes, bottled water, and custom cakes at Taji Eats. Fusion of culture and flavor in Bungoma and Kisumu." />
+    <meta property="og:image" content="https://www.tajithreeinone.com/Resources/keki.jpg" />
+    <meta property="og:url" content="https://www.tajithreeinone.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taji Eats" />
 
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Keki na Taji | Authentic Kenyan Cuisine" />
-<meta name="twitter:description" content="Fusion of tradition and modern taste. Come explore Bungoma's and Kisumu's top spot for Kenyan food, water, and cakes." />
-<meta name="twitter:image" content="https://www.tajithreeinone.com/Resources/kekinatajilogo.jpeg" />
-<meta name="twitter:site" content="@tajieats" />
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Keki na Taji | Authentic Kenyan Cuisine" />
+    <meta name="twitter:description" content="Fusion of tradition and modern taste. Come explore Bungoma's and Kisumu's top spot for Kenyan food, water, and cakes." />
+    <meta name="twitter:image" content="https://www.tajithreeinone.com/Resources/kekinatajilogo.jpeg" />
+    <meta name="twitter:site" content="@tajieats" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -32,19 +32,314 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="./Resources/kekinatajilogo.jpeg" />
+    <style>
+      /* Additional styles specific to cakes page */
+      .search-container {
+        background-color: var(--primary);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 80px;
+        z-index: 100;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .search-input {
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        outline: none;
+      }
+      
+      .search-input:focus {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      .menu-image {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .menu-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .menu-item:hover .menu-image img {
+        transform: scale(1.1);
+      }
+      
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .menu-item:hover .image-overlay {
+        transform: translateY(0);
+      }
+      
+      .order-btn {
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .order-btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .price-tag {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+      
+      .menu-category {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .menu-category h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .menu-category h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+        transition: width 0.5s ease;
+      }
+      
+      .menu-category:hover h2::after {
+        width: 120px;
+      }
+      
+      .menu-category p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* Cart notification */
+      .cart-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+      
+      .cart-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .cart-icon {
+        font-size: 1.2rem;
+      }
+      
+      /* Cake-specific styling */
+      .cake-item {
+        border-left: 4px solid var(--primary);
+      }
+      
+      .premium-cake {
+        border-left: 4px solid var(--accent);
+      }
+      
+      .special-occasion-cake {
+        border-left: 4px solid #D2691E;
+      }
+      
+      .cake-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--accent);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        z-index: 2;
+      }
+      
+      .premium-badge {
+        background-color: var(--accent);
+      }
+      
+      .occasion-badge {
+        background-color: #D2691E;
+      }
+      
+      .slice-badge {
+        background-color: #8B4513;
+      }
+      
+      /* Cake type indicators */
+      .cake-type {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      
+      .flavor-indicator {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      
+      .size-indicator {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+      
+      /* Loading animation for images */
+      .menu-image {
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .menu-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      /* Cake filter buttons */
+      .cake-filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      
+      .filter-btn {
+        background-color: white;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 500;
+      }
+      
+      .filter-btn:hover, .filter-btn.active {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .search-input {
+          width: 80%;
+        }
+        
+        .menu-category h2 {
+          font-size: 2rem;
+        }
+        
+        .cake-filters {
+          gap: 5px;
+        }
+        
+        .filter-btn {
+          padding: 6px 12px;
+          font-size: 0.9rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .search-input {
+          width: 90%;
+        }
+        
+        .menu-category h2 {
+          font-size: 1.8rem;
+        }
+        
+        .menu-category p {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
-        <!-- Header Section -->
+  <body>
+    <!-- Header Section -->
     <header>
-    <div class="container header-container">
+      <div class="container header-container">
         <div class="logo">
-    <a href="index.html" class="logo">
-      <div class="logo-placeholder">
-        <img src="./Resources/kekinatajilogo.jpeg" alt="EATS" />
-      </div>
-    </a>
+          <a href="index.html" class="logo">
+            <div class="logo-placeholder">
+              <img src="./Resources/kekinatajilogo.jpeg" alt="Keki na Taji" />
+            </div>
+          </a>
           <h1>Keki na Taji</h1>
         </div>
-                <nav>
+        <nav>
           <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
           </button>
@@ -53,539 +348,530 @@
             <li><a href="https://wa.me/254713195195?text=Hello%20Taji%20Eats%2C%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" class="btn">Order Online</a></li>
           </ul>
         </nav>
-    </div>
+      </div>
     </header>
-            <!-- Search Bar -->
-<div class="search-container" style="padding: 1rem; text-align: center;">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search for cakes..."
-    style="width: 40%; padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px;"
-  />
-</div>
-<!-- Menu Items -->
-      <section id="menu" style="background-color: var(--background)">
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="container" style="text-align: center;">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for cakes..."
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <!-- Menu section -->
+    <section id="menu" style="background-color: var(--background); padding: 3rem 0;">
       <div class="container">
-        <div class="section-title">
+        <div class="menu-category fade-in">
           <h2>Our Cakes Menu</h2>
-          <p>Discover our authentic Kenyan dishes</p>
+          <p>Handcrafted cakes for every celebration and everyday indulgence</p>
         </div>
+        
+        <!-- Cake Filters -->
+        <div class="cake-filters fade-in">
+          <button class="filter-btn active" data-filter="all">All Cakes</button>
+          <button class="filter-btn" data-filter="flavor">Flavors</button>
+          <button class="filter-btn" data-filter="occasion">Special Occasions</button>
+          <button class="filter-btn" data-filter="slice">Slices & Cupcakes</button>
+        </div>
+        
         <div class="menu-grid">
 
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/orange-cake.jpeg" alt="Orange Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Orange Cake</h3>
-    <p>A delicious Orange cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2450</span>
-      <button class="btn order-btn" data-name="Orange Cake" data-price="2450">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/vanilla-cake.jpeg" alt="Vanilla Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Vanilla Cake</h3>
-    <p>A classic Vanilla cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2400</span>
-      <button class="btn order-btn" data-name="Vanilla Cake" data-price="2400">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/salted-caramel-cake.jpeg" alt="Salted Caramel Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Salted Caramel Cake</h3>
-    <p>A decadent Salted Caramel cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 3000</span>
-      <button class="btn order-btn" data-name="Salted Caramel Cake" data-price="3000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/bailleys-cake.jpeg" alt="Bailey's Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Bailey's Cake</h3>
-    <p>A rich Bailey's infused cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2450</span>
-      <button class="btn order-btn" data-name="Bailey's Cake" data-price="2450">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/blueberry.jpeg" alt="Blueberry Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Blueberry Cake</h3>
-    <p>A delightful Blueberry cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 3000</span>
-      <button class="btn order-btn" data-name="Blueberry Cake" data-price="3000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/chocolate-fudge.jpeg" alt="Chocolate Fudge Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Chocolate Fudge Cake</h3>
-    <p>A rich Chocolate Fudge cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 3000</span>
-      <button class="btn order-btn" data-name="Chocolate Fudge Cake" data-price="3000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/chocolate-mint.jpeg" alt="Chocolate Mint Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Chocolate Mint Cake</h3>
-    <p>A refreshing Chocolate Mint cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="Chocolate Mint Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/chocolate.jpeg" alt="Chocolate Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Chocolate Cake</h3>
-    <p>A classic Chocolate cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="Chocolate Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/red-velvet.jpeg" alt="Red Velvet Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Red Velvet Cake</h3>
-    <p>A stunning Red Velvet cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="Red Velvet Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/passion-forest.jpeg" alt="Passion Forest Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Passion Forest Cake</h3>
-    <p>A tropical Passion Forest cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="Passion Forest Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/black-forest.jpeg" alt="Black Forest Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Black Forest Cake</h3>
-    <p>A timeless Black Forest cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="Black Forest Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/white-forest.jpeg" alt="White Forest Cake">
-  </div>
-  <div class="menu-details">
-    <h3>White Forest Cake</h3>
-    <p>An elegant White Forest cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2600</span>
-      <button class="btn order-btn" data-name="White Forest Cake" data-price="2600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/passion.jpeg" alt="Passion Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Passion Cake</h3>
-    <p>A zesty Passion fruit cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2400</span>
-      <button class="btn order-btn" data-name="Passion Cake" data-price="2400">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/straeberry.jpeg" alt="Strawberry Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Strawberry Cake</h3>
-    <p>A sweet Strawberry cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2400</span>
-      <button class="btn order-btn" data-name="Strawberry Cake" data-price="2400">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/lemon.jpeg" alt="Lemon Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Lemon Cake</h3>
-    <p>A tangy Lemon cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 2450</span>
-      <button class="btn order-btn" data-name="Lemon Cake" data-price="2450">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="menu-item">
-  <div class="menu-image">
-    <img src="./Resources/Cakes/amarula-forest.jpeg" alt="Amarula Forest Cake">
-  </div>
-  <div class="menu-details">
-    <h3>Amarula Forest Cake</h3>
-    <p>A unique Amarula Forest cake, perfect for any occasion. Price is per Kg.</p>
-    <div class="menu-price">
-      <span class="price">KSh 3700</span>
-      <button class="btn order-btn" data-name="Amarula Forest Cake" data-price="3700">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/2kgchess.jpeg" alt="2 kg chess themed vanilla cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Birthday</h3>
-    <p>2 kg chess themed vanilla cake, frosted.</p>
-    <div class="menu-price">
-      <span class="price">KSh 5000</span>
-      <button class="btn order-btn" data-name="2 kg chess themed vanilla cake" data-price="KSh 5000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/graduation.jpeg" alt="Graduation cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Graduation</h3>
-    <p>2.5 kg vanilla strawberry combo. Frosted.</p>
-    <div class="menu-price">
-      <span class="price">KSh 7000</span>
-      <button class="btn order-btn" data-name="2.5 kg vanilla strawberry cake" data-price="KSh 7000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/wedding13kg.jpeg" alt="13 kg wedding cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>nWeddig</h3>
-    <p>13 kg wedding cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 42000</span>
-      <button class="btn order-btn" data-name="13 kg wedding cake" data-price="KSh 42000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/wedding3kg.jpeg" alt="3 kg Customary wedding cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Wedding</h3>
-    <p>3 kg Customary wedding cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 9600</span>
-      <button class="btn order-btn" data-name="3 kg Customary wedding cake" data-price="KSh 9600">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/wedding14kg.jpeg" alt="14 kg wedding cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Wedding</h3>
-    <p>14 kg wedding cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 44000</span>
-      <button class="btn order-btn" data-name="14 kg wedding cake" data-price="KSh 44000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/housewarming.jpeg" alt="Housewarming cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>House warming</h3>
-    <p>Housewarming cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 3000</span>
-      <button class="btn order-btn" data-name="Housewarming cake" data-price="KSh 3000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/corporate.jpeg" alt="Corporate Cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Corporate</h3>
-    <p>Corporate Cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 5000</span>
-      <button class="btn order-btn" data-name="Corporate Cake" data-price="KSh 5000">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #e6c9a8; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/2kglemonblueberry.jpeg" alt="2.5 kg lemon blueberry cake">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Birthday</h3>
-    <p>2.5 kg lemon blueberry cake, frosted.</p>
-    <div class="menu-price">
-      <span class="price">KSh 6200</span>
-      <button class="btn order-btn" data-name="2.5 kg lemon blueberry cake" data-price="KSh 6200">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #c45e3d; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/4.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Chocolate/Red Velvet Cake slice</h3>
-    <p>A delicious slice of either Chocolate or Red Velvet cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 400</span>
-      <button class="btn order-btn" data-name="Chocolate/Red Velvet Cake slice" data-price="KSh 400">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #8E705B; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; font-size: 0.9em; padding: 5px;">
-      <img src="./Resources/Cakes/2.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Vanilla/orange/Lemon Cake slice</h3>
-    <p>A delightful slice of Vanilla, Orange, or Lemon cake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 350</span>
-      <button class="btn order-btn" data-name="Vanilla/orange/Lemon Cake slice" data-price="KSh 350">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #D8A07A; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-      <img src="./Resources/Menuitems/30.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Plain Keki Na Taji Cupcakes (3)</h3>
-    <p>Three plain Taji cupcakes, perfect for a light snack.</p>
-    <div class="menu-price">
-      <span class="price">KSh 100</span>
-      <button class="btn order-btn" data-name="Plain Keki Na Taji Cupcakes (3)" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-<div class="menu-item">
-  <div class="menu-image">
-    <div style="background-color: #AD8B73; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-      <img src="./Resources/Menuitems/64.jpg" alt="">
-    </div>
-  </div>
-  <div class="menu-details">
-    <h3>Frosted Keki Na Taji Cupcake (1)</h3>
-    <p>One delicious frosted Taji cupcake.</p>
-    <div class="menu-price">
-      <span class="price">KSh 100</span>
-      <button class="btn order-btn" data-name="Frosted Keki Na Taji Cupcake (1)" data-price="KSh 100">Add to Order</button>
-    </div>
-  </div>
-</div>
-
-        <!-- Forest Cake Slice -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #8B0000; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/forestcake.png" alt="">
+          <!-- Orange Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="cake-badge">Popular</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/orange-cake.jpeg" alt="Orange Cake">
+              <div class="image-overlay">Orange Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Orange Cake</h3>
+              <p><span class="cake-type flavor-indicator">Citrus</span> A delicious Orange cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,450</span>
+                <button class="order-btn" data-name="Orange Cake (per kg)" data-price="KSh 2450">Add to Order</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="menu-details">
-          <h3>Forest Cake Slice</h3>
-          <p>White forest/Black forest/Passion forest cake slice frosted with whipped cream</p>
-          <div class="menu-price">
-            <span class="price">KSh 400</span>
-            <button class="btn order-btn" data-name="Forest Cake Slice" data-price="KSh 400">Add to Order</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Chocolate/Red Velvet Cake -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #B22222; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/1 (2).jpg" alt="">
+          <!-- Vanilla Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/vanilla-cake.jpeg" alt="Vanilla Cake">
+              <div class="image-overlay">Vanilla Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Vanilla Cake</h3>
+              <p><span class="cake-type flavor-indicator">Classic</span> A classic Vanilla cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,400</span>
+                <button class="order-btn" data-name="Vanilla Cake (per kg)" data-price="KSh 2400">Add to Order</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="menu-details">
-          <h3>Chocolate/Red Velvet Cake Slice</h3>
-          <p>Rich chocolate or classic red velvet cake slice</p>
-          <div class="menu-price">
-            <span class="price">KSh 400</span>
-            <button class="btn order-btn" data-name="Chocolate/Red Velvet Cake" data-price="KSh 400">Add to Order</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Vanilla/Orange/Lemon Cake -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #FFD700; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/4 (2).jpg" alt="">
+          <!-- Salted Caramel Cake -->
+          <div class="menu-item fade-in premium-cake" data-category="flavor">
+            <div class="cake-badge premium-badge">Premium</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/salted-caramel-cake.jpeg" alt="Salted Caramel Cake">
+              <div class="image-overlay">Salted Caramel Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Salted Caramel Cake</h3>
+              <p><span class="cake-type flavor-indicator">Gourmet</span> A decadent Salted Caramel cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 3,000</span>
+                <button class="order-btn" data-name="Salted Caramel Cake (per kg)" data-price="KSh 3000">Add to Order</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="menu-details">
-          <h3>Vanilla/Orange/Lemon Cake Slice</h3>
-          <p>Light and refreshing citrus-flavored cake options</p>
-          <div class="menu-price">
-            <span class="price">KSh 350</span>
-            <button class="btn order-btn" data-name="Vanilla/Orange/Lemon Cake" data-price="KSh 350">Add to Order</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Plain Cupcakes -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #F5DEB3; height: 100%; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/30.jpg" alt="">
+          <!-- Bailey's Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/bailleys-cake.jpeg" alt="Bailey's Cake">
+              <div class="image-overlay">Bailey's Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Bailey's Cake</h3>
+              <p><span class="cake-type flavor-indicator">Liqueur</span> A rich Bailey's infused cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,450</span>
+                <button class="order-btn" data-name="Bailey's Cake (per kg)" data-price="KSh 2450">Add to Order</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="menu-details">
-          <h3>Plain Keki Na Taji Cupcakes (3)</h3>
-          <p>Set of three simple, unfrosted cupcakes</p>
-          <div class="menu-price">
-            <span class="price">KSh 100</span>
-            <button class="btn order-btn" data-name="Plain Cupcakes (3)" data-price="KSh 100">Add to Order</button>
+
+          <!-- Blueberry Cake -->
+          <div class="menu-item fade-in premium-cake" data-category="flavor">
+            <div class="cake-badge premium-badge">Premium</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/blueberry.jpeg" alt="Blueberry Cake">
+              <div class="image-overlay">Blueberry Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Blueberry Cake</h3>
+              <p><span class="cake-type flavor-indicator">Fruit</span> A delightful Blueberry cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 3,000</span>
+                <button class="order-btn" data-name="Blueberry Cake (per kg)" data-price="KSh 3000">Add to Order</button>
+              </div>
+            </div>
           </div>
+
+          <!-- Chocolate Fudge Cake -->
+          <div class="menu-item fade-in premium-cake" data-category="flavor">
+            <div class="cake-badge premium-badge">Premium</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/chocolate-fudge.jpeg" alt="Chocolate Fudge Cake">
+              <div class="image-overlay">Chocolate Fudge Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Chocolate Fudge Cake</h3>
+              <p><span class="cake-type flavor-indicator">Chocolate</span> A rich Chocolate Fudge cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 3,000</span>
+                <button class="order-btn" data-name="Chocolate Fudge Cake (per kg)" data-price="KSh 3000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chocolate Mint Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/chocolate-mint.jpeg" alt="Chocolate Mint Cake">
+              <div class="image-overlay">Chocolate Mint Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Chocolate Mint Cake</h3>
+              <p><span class="cake-type flavor-indicator">Chocolate</span> A refreshing Chocolate Mint cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="Chocolate Mint Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chocolate Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/chocolate.jpeg" alt="Chocolate Cake">
+              <div class="image-overlay">Chocolate Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Chocolate Cake</h3>
+              <p><span class="cake-type flavor-indicator">Chocolate</span> A classic Chocolate cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="Chocolate Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Velvet Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/red-velvet.jpeg" alt="Red Velvet Cake">
+              <div class="image-overlay">Red Velvet Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Red Velvet Cake</h3>
+              <p><span class="cake-type flavor-indicator">Classic</span> A stunning Red Velvet cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="Red Velvet Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Passion Forest Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/passion-forest.jpeg" alt="Passion Forest Cake">
+              <div class="image-overlay">Passion Forest Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Passion Forest Cake</h3>
+              <p><span class="cake-type flavor-indicator">Fruit</span> A tropical Passion Forest cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="Passion Forest Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Black Forest Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/black-forest.jpeg" alt="Black Forest Cake">
+              <div class="image-overlay">Black Forest Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Black Forest Cake</h3>
+              <p><span class="cake-type flavor-indicator">Classic</span> A timeless Black Forest cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="Black Forest Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- White Forest Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/white-forest.jpeg" alt="White Forest Cake">
+              <div class="image-overlay">White Forest Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>White Forest Cake</h3>
+              <p><span class="cake-type flavor-indicator">Classic</span> An elegant White Forest cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,600</span>
+                <button class="order-btn" data-name="White Forest Cake (per kg)" data-price="KSh 2600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Passion Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/passion.jpeg" alt="Passion Cake">
+              <div class="image-overlay">Passion Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Passion Cake</h3>
+              <p><span class="cake-type flavor-indicator">Fruit</span> A zesty Passion fruit cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,400</span>
+                <button class="order-btn" data-name="Passion Cake (per kg)" data-price="KSh 2400">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strawberry Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/straeberry.jpeg" alt="Strawberry Cake">
+              <div class="image-overlay">Strawberry Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Strawberry Cake</h3>
+              <p><span class="cake-type flavor-indicator">Fruit</span> A sweet Strawberry cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,400</span>
+                <button class="order-btn" data-name="Strawberry Cake (per kg)" data-price="KSh 2400">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lemon Cake -->
+          <div class="menu-item fade-in cake-item" data-category="flavor">
+            <div class="menu-image">
+              <img src="./Resources/Cakes/lemon.jpeg" alt="Lemon Cake">
+              <div class="image-overlay">Lemon Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Lemon Cake</h3>
+              <p><span class="cake-type flavor-indicator">Citrus</span> A tangy Lemon cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 2,450</span>
+                <button class="order-btn" data-name="Lemon Cake (per kg)" data-price="KSh 2450">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amarula Forest Cake -->
+          <div class="menu-item fade-in premium-cake" data-category="flavor">
+            <div class="cake-badge premium-badge">Premium</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/amarula-forest.jpeg" alt="Amarula Forest Cake">
+              <div class="image-overlay">Amarula Forest Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Amarula Forest Cake</h3>
+              <p><span class="cake-type flavor-indicator">Liqueur</span> A unique Amarula Forest cake, perfect for any occasion. Price is per Kg.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 3,700</span>
+                <button class="order-btn" data-name="Amarula Forest Cake (per kg)" data-price="KSh 3700">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Birthday Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Birthday</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/2kgchess.jpeg" alt="2 kg chess themed vanilla cake">
+              <div class="image-overlay">Birthday Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Birthday Cake</h3>
+              <p><span class="cake-type size-indicator">2 kg</span> Chess themed vanilla cake, beautifully frosted for birthdays.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 5,000</span>
+                <button class="order-btn" data-name="Birthday Cake (2 kg chess themed vanilla)" data-price="KSh 5000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graduation Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Graduation</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/graduation.jpeg" alt="Graduation cake">
+              <div class="image-overlay">Graduation Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Graduation Cake</h3>
+              <p><span class="cake-type size-indicator">2.5 kg</span> Vanilla strawberry combo cake, frosted for graduation celebrations.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 7,000</span>
+                <button class="order-btn" data-name="Graduation Cake (2.5 kg vanilla strawberry)" data-price="KSh 7000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wedding Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Wedding</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/wedding13kg.jpeg" alt="13 kg wedding cake">
+              <div class="image-overlay">Wedding Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Wedding Cake</h3>
+              <p><span class="cake-type size-indicator">13 kg</span> Elegant wedding cake for your special day.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 42,000</span>
+                <button class="order-btn" data-name="Wedding Cake (13 kg)" data-price="KSh 42000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customary Wedding Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Wedding</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/wedding3kg.jpeg" alt="3 kg Customary wedding cake">
+              <div class="image-overlay">Customary Wedding Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Customary Wedding Cake</h3>
+              <p><span class="cake-type size-indicator">3 kg</span> Beautiful customary wedding cake for traditional ceremonies.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 9,600</span>
+                <button class="order-btn" data-name="Customary Wedding Cake (3 kg)" data-price="KSh 9600">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Large Wedding Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Wedding</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/wedding14kg.jpeg" alt="14 kg wedding cake">
+              <div class="image-overlay">Large Wedding Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Large Wedding Cake</h3>
+              <p><span class="cake-type size-indicator">14 kg</span> Grand wedding cake for large celebrations.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 44,000</span>
+                <button class="order-btn" data-name="Large Wedding Cake (14 kg)" data-price="KSh 44000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Housewarming Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Housewarming</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/housewarming.jpeg" alt="Housewarming cake">
+              <div class="image-overlay">Housewarming Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Housewarming Cake</h3>
+              <p>Special cake to celebrate your new home and create beautiful memories.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 3,000</span>
+                <button class="order-btn" data-name="Housewarming Cake" data-price="KSh 3000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corporate Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Corporate</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/corporate.jpeg" alt="Corporate Cake">
+              <div class="image-overlay">Corporate Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Corporate Cake</h3>
+              <p>Professional cake for corporate events, meetings, and business celebrations.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 5,000</span>
+                <button class="order-btn" data-name="Corporate Cake" data-price="KSh 5000">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lemon Blueberry Cake -->
+          <div class="menu-item fade-in special-occasion-cake" data-category="occasion">
+            <div class="cake-badge occasion-badge">Birthday</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/2kglemonblueberry.jpeg" alt="2.5 kg lemon blueberry cake">
+              <div class="image-overlay">Lemon Blueberry Cake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Lemon Blueberry Birthday Cake</h3>
+              <p><span class="cake-type size-indicator">2.5 kg</span> Lemon blueberry cake, beautifully frosted for special birthdays.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 6,200</span>
+                <button class="order-btn" data-name="Lemon Blueberry Birthday Cake (2.5 kg)" data-price="KSh 6200">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cake Slices and Cupcakes Section -->
+          <div class="menu-item fade-in" data-category="slice">
+            <div class="cake-badge slice-badge">Slice</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/4.jpg" alt="Chocolate/Red Velvet Cake slice">
+              <div class="image-overlay">Cake Slice</div>
+            </div>
+            <div class="menu-details">
+              <h3>Chocolate/Red Velvet Cake Slice</h3>
+              <p>A delicious slice of either rich Chocolate or classic Red Velvet cake.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 400</span>
+                <button class="order-btn" data-name="Chocolate/Red Velvet Cake Slice" data-price="KSh 400">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in" data-category="slice">
+            <div class="cake-badge slice-badge">Slice</div>
+            <div class="menu-image">
+              <img src="./Resources/Cakes/2.jpg" alt="Vanilla/orange/Lemon Cake slice">
+              <div class="image-overlay">Cake Slice</div>
+            </div>
+            <div class="menu-details">
+              <h3>Vanilla/Orange/Lemon Cake Slice</h3>
+              <p>A delightful slice of Vanilla, zesty Orange, or refreshing Lemon cake.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 350</span>
+                <button class="order-btn" data-name="Vanilla/Orange/Lemon Cake Slice" data-price="KSh 350">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in" data-category="slice">
+            <div class="cake-badge slice-badge">Slice</div>
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/forestcake.png" alt="Forest Cake Slice">
+              <div class="image-overlay">Forest Cake Slice</div>
+            </div>
+            <div class="menu-details">
+              <h3>Forest Cake Slice</h3>
+              <p>White forest/Black forest/Passion forest cake slice frosted with whipped cream.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 400</span>
+                <button class="order-btn" data-name="Forest Cake Slice" data-price="KSh 400">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in" data-category="slice">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/30.jpg" alt="Plain Cupcakes">
+              <div class="image-overlay">Plain Cupcakes</div>
+            </div>
+            <div class="menu-details">
+              <h3>Plain Keki Na Taji Cupcakes (3)</h3>
+              <p>Three plain Taji cupcakes, perfect for a light snack or small treat.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Plain Keki Na Taji Cupcakes (3)" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in" data-category="slice">
+            <div class="menu-image">
+              <img src="./Resources/Menuitems/64.jpg" alt="Frosted Cupcake">
+              <div class="image-overlay">Frosted Cupcake</div>
+            </div>
+            <div class="menu-details">
+              <h3>Frosted Keki Na Taji Cupcake (1)</h3>
+              <p>One delicious frosted Taji cupcake, perfect for individual indulgence.</p>
+              <div class="menu-price">
+                <span class="price-tag">KSh 100</span>
+                <button class="order-btn" data-name="Frosted Keki Na Taji Cupcake (1)" data-price="KSh 100">Add to Order</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <!-- Frosted Cupcake -->
-      <div class="menu-item">
-        <div class="menu-image">
-          <div style="background-color: #FF69B4; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align:center; padding: 5px;">
-            <img src="./Resources/Menuitems/19.jpg" alt="">
-          </div>
-        </div>
-        <div class="menu-details">
-          <h3>Frosted Keki Na Taji Cupcake</h3>
-          <p>Single beautifully frosted cupcake</p>
-          <div class="menu-price">
-            <span class="price">KSh 100</span>
-            <button class="btn order-btn" data-name="Frosted Cupcake" data-price="KSh 100">Add to Order</button>
-          </div>
-        </div>
-      </div>
-
-</div>
-      
     </section>
 
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+      <i class="fas fa-shopping-cart cart-icon"></i>
+      <span id="notificationText">Cake added to cart!</span>
+    </div>
+
     <!-- Footer -->
-      <footer>
+    <footer>
       <div class="container">
         <div class="footer-container">
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Taji Eats</h3>
             <p>Tradition Meets Modernity</p>
             <p>
@@ -596,14 +882,14 @@
             </div>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="./index.html">Home</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Opening Hours</h3>
             <p>Monday to Saturday: 7.30 am - 9.30 pm </p> 
             <p>Sunday: 9.30 am - 9.30 pm</p>
@@ -611,7 +897,7 @@
             <p>Reservations recommended for groups of 6+</p>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Newsletter</h3>
             <p>Subscribe to our newsletter for special offers and updates.</p>
             <form>
@@ -628,42 +914,149 @@
         </div>
       </div>
     </footer>
-    
-        <script>
-  // Phone number to send to
-  const phoneNumber = '254713195195';
 
-  // Wait for the DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
-    // Select all buttons with class 'order-btn'
-    const buttons = document.querySelectorAll('.order-btn');
+    <!-- JS of order buttons -->
+    <script>
+      // Phone number to send to
+      const phoneNumber = '254713195195';
+      
+      // Cart items array
+      let cartItems = [];
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-name');
-        const itemPrice = button.getAttribute('data-price');
+      // Wait for the DOM to load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Select all buttons with class 'order-btn'
+        const buttons = document.querySelectorAll('.order-btn');
+        const cartNotification = document.getElementById('cartNotification');
+        const notificationText = document.getElementById('notificationText');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
 
-        const message = encodeURIComponent(
-          `Hello, I'd like to order:\n${itemName}\nPrice: ${itemPrice}`
-        );
+        // Order button functionality
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const itemName = button.getAttribute('data-name');
+            const itemPrice = button.getAttribute('data-price');
+            
+            // Add item to cart
+            cartItems.push({ name: itemName, price: itemPrice });
+            
+            // Show notification
+            notificationText.textContent = `${itemName} added to cart!`;
+            cartNotification.classList.add('show');
+            
+            // Update button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Added!';
+            button.style.backgroundColor = '#5cb85c';
+            
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.style.backgroundColor = '';
+            }, 2000);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+              cartNotification.classList.remove('show');
+            }, 3000);
+          });
+        });
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter items
+            menuItems.forEach(item => {
+              if (filter === 'all') {
+                item.style.display = 'block';
+              } else {
+                const category = item.getAttribute('data-category');
+                if (category === filter) {
+                  item.style.display = 'block';
+                } else {
+                  item.style.display = 'none';
+                }
+              }
+              
+              // Add animation when showing items
+              if (item.style.display === 'block') {
+                item.style.animation = 'fadeIn 0.5s ease';
+              }
+            });
+          });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById("searchInput");
 
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        searchInput.addEventListener("input", () => {
+          const filter = searchInput.value.toLowerCase();
+          menuItems.forEach((item) => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(filter)) {
+              item.style.display = "block";
+              // Add a subtle animation when showing items
+              item.style.animation = "fadeIn 0.5s ease";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Order all items in cart
+        const orderOnlineBtn = document.querySelector('nav .btn');
+        orderOnlineBtn.addEventListener('click', (e) => {
+          if (cartItems.length > 0) {
+            e.preventDefault();
+            
+            let message = "Hello, I'd like to order the following cakes:\n";
+            cartItems.forEach(item => {
+              message += `- ${item.name} (${item.price})\n`;
+            });
+            message += "\nThank you!";
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Clear cart after ordering
+            cartItems = [];
+          }
+        });
       });
-    });
-  });
-
-  
-    const searchInput = document.getElementById("searchInput");
-  const items = document.querySelectorAll(".menu-item");
-
-  searchInput.addEventListener("input", () => {
-    const filter = searchInput.value.toLowerCase();
-    items.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(filter) ? "block" : "none";
-    });
-  });
-</script>
+    </script>
   </body>
 </html>

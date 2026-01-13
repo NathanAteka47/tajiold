@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Taji Hotel - Experience comfort and luxury in Bungoma. Book your stay today!"
@@ -51,19 +50,563 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="./Resources/logo.png" />
+    <style>
+      /* CSS Variables for consistent theming */
+      :root {
+        --primary: #e67e22;
+        --primary-dark: #d35400;
+        --secondary: #2c3e50;
+        --accent: #f39c12;
+        --light: #f9f9f9;
+        --dark: #333;
+        --background: #fff;
+        --text: #333;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s ease;
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--background);
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* Image Optimization Styles */
+      img {
+        max-width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      img.lazy-loaded {
+        opacity: 1;
+      }
+
+      .logo-placeholder img {
+        opacity: 1; /* Logo should load immediately */
+      }
+
+      /* Loading States for Images */
+      .image-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 10px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      .image-loaded .image-loading {
+        display: none;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Critical above-the-fold content */
+      .critical-content {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: width 0.5s ease;
+      }
+
+      .section-title:hover h2::after {
+        width: 120px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--background);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        animation: slideDown 0.5s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-placeholder {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--light);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .logo-placeholder:hover {
+        transform: rotate(10deg) scale(1.05);
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        color: var(--secondary);
+        margin-bottom: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.5s ease;
+      }
+
+      .logo:hover h1::after {
+        width: 100%;
+      }
+
+      nav ul {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      nav ul li a:not(.btn)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:not(.btn):hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--secondary);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .mobile-menu-btn:hover {
+        color: var(--primary);
+        transform: scale(1.1);
+      }
+
+      /* Menu Section */
+      #menu {
+        padding: 5rem 0;
+        background-color: var(--light);
+      }
+
+      .menu-tabs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .tab-btn {
+        background-color: var(--background);
+        border: 2px solid transparent;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        position: relative;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tab-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .tab-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--primary);
+      }
+
+      .tab-btn:hover::before {
+        left: 100%;
+      }
+
+      .tab-btn span {
+        font-weight: 600;
+        color: var(--secondary);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Background images for tabs with loading states */
+      .beverages-tab { background-image: url('./Resources/MenuTabItems/beverages.webp'); }
+      .drinks-tab { background-image: url('./Resources/MenuTabItems/coldbev.jpg'); }
+      .accompaniments-tab { background-image: url('./Resources/PicsToUpdate/ChipsBeef+SosaFries.jpg'); }
+      .breakfast-tab { background-image: url('./Resources/Menuitems/31\(2\).jpg'); }
+      .precookedvegetables-tab { background-image: url('./Resources/PicsToUpdate/Saga.jpg'); }
+      .vegie-tab { background-image: url('./Resources/Menuitems/2.jpg'); }
+      .fishy-tab { background-image: url('./Resources/MenuTabItems/fishygoodness.jpg'); }
+      .chicken-tab { background-image: url('./Resources/Menuitems/6.jpg'); }
+      .beef-tab { background-image: url('./Resources/Menuitems/49.jpg'); }
+      .fries-tab { background-image: url('./Resources/Menuitems/13.jpg'); }
+      .snackskieny-tab { background-image: url('./Resources/Menuitems/5.jpg'); }
+
+      /* Apply background styles to all tab buttons */
+      .tab-btn {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: var(--secondary);
+        color: white;
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-col h3 {
+        color: var(--accent);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-col h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .footer-col:hover h3::after {
+        width: 60px;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: #ddd;
+        transition: var(--transition);
+        position: relative;
+        padding-left: 0;
+      }
+
+      .footer-links a::before {
+        content: '→';
+        position: absolute;
+        left: -15px;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 15px;
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 2px var(--primary);
+      }
+
+      .form-group input::placeholder {
+        color: #ccc;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #ccc;
+        font-size: 0.9rem;
+      }
+
+      /* Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Performance optimizations */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        nav ul {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        nav ul.show {
+          display: flex;
+          animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .menu-tabs {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        /* Reduce animation intensity on mobile */
+        .tab-btn:hover {
+          transform: translateY(-2px);
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header Section -->
-    <header>
+    <header class="critical-content">
       <div class="container header-container">
         <div class="logo">
-    <a href="index.html" class="logo">
-      <div class="logo-placeholder">
-        <img src="./Resources/logo.png" alt="EATS" />
-      </div>
-    </a>
+          <a href="index.html" class="logo">
+            <div class="logo-placeholder">
+              <!-- Logo loads immediately without lazy loading -->
+              <img src="./Resources/logo.png" alt="Taji Eats Logo" loading="eager" />
+            </div>
+          </a>
           <h1>Taji Eats</h1>
         </div>
         <nav>
@@ -90,72 +633,72 @@
     <!-- Menu Section -->
     <section id="menu" style="background-color: var(--background)">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-in">
           <h2>Our Menu</h2>
         </div>
         <div class="menu-tabs">
           <button
-            class="tab-btn beverages-tab"
+            class="tab-btn beverages-tab fade-in"
             onclick="window.location.href='beverages.html'"
           >
             <span>Beverages</span>
           </button>
           <button
-            class="tab-btn drinks-tab"
+            class="tab-btn drinks-tab fade-in"
             onclick="window.location.href='coldbeverages.html'"
           >
             <span>Cold Beverages</span>
           </button>
           <button
-            class="tab-btn accompaniments-tab"
+            class="tab-btn accompaniments-tab fade-in"
             onclick="window.location.href='accompaniments.html'"
           >
             <span>Accompaniments</span>
           </button>
           <button
-            class="tab-btn breakfast-tab"
+            class="tab-btn breakfast-tab fade-in"
             onclick="window.location.href='breakfastcombinations.html'"
           >
             <span>Breakfast Combinations</span>
           </button>
           <button
-            class="tab-btn precookedvegetables-tab"
+            class="tab-btn precookedvegetables-tab fade-in"
             onclick="window.location.href='precookedvegetables.html'"
           >
             <span>Precooked Vegetables</span>
           </button>
           <button
-            class="tab-btn vegie-tab"
+            class="tab-btn vegie-tab fade-in"
             onclick="window.location.href='vegieoptions.html'"
           >
             <span>Vegie Options</span>
           </button>
           <button
-            class="tab-btn fishy-tab"
+            class="tab-btn fishy-tab fade-in"
             onclick="window.location.href='fishygoodness.html'"
           >
             <span>Fishy Goodness</span>
           </button>
           <button
-            class="tab-btn chicken-tab"
+            class="tab-btn chicken-tab fade-in"
             onclick="window.location.href='chickenmeals.html'"
           >
             <span>Chicken Meals</span>
           </button>
           <button
-            class="tab-btn beef-tab"
+            class="tab-btn beef-tab fade-in"
             onclick="window.location.href='beefvariety.html'"
           >
             <span>Beef Variety</span>
           </button>
           <button
-            class="tab-btn fries-tab"
+            class="tab-btn fries-tab fade-in"
             onclick="window.location.href='contemporaries.html'"
           >
             <span>Contemporaries</span>
           </button>
           <button
-            class="tab-btn snackskieny-tab"
+            class="tab-btn snackskieny-tab fade-in"
             onclick="window.location.href='snackskienyeji.html'"
           >
             <span>Snacks to Nibble - Kienyeji</span>
@@ -163,11 +706,12 @@
         </div>
       </div>
     </section>
+
     <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-container">
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Taji Eats</h3>
             <p>Tradition Meets Modernity</p>
             <p>
@@ -180,14 +724,14 @@
             </div>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
             </ul>
           </div>
 
-          <div class="footer-col">
+          <div class="footer-col fade-in">
             <h3>Newsletter</h3>
             <p>Subscribe to our newsletter for special offers and updates.</p>
             <form>
@@ -204,5 +748,93 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Image Optimization and Lazy Loading
+      document.addEventListener('DOMContentLoaded', function() {
+        // Preload critical images
+        function preloadImage(url) {
+          const img = new Image();
+          img.src = url;
+        }
+
+        // Preload logo and critical images
+        preloadImage('./Resources/logo.png');
+
+        // Lazy load background images for menu tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        const backgroundObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const tab = entry.target;
+              // Background images will load naturally via CSS
+              // We just trigger the intersection
+              observer.unobserve(tab);
+            }
+          });
+        }, {
+          rootMargin: '50px 0px', // Load 50px before they come into view
+          threshold: 0.1
+        });
+
+        tabButtons.forEach(tab => {
+          backgroundObserver.observe(tab);
+        });
+
+        // Lazy load all regular images
+        const images = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.add('lazy-loaded');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        images.forEach(img => {
+          imageObserver.observe(img);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+          document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Performance: Reduce animations if user prefers reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.style.setProperty('--transition', 'all 0.01ms ease');
+        }
+      });
+
+      // Load critical content immediately
+      window.addEventListener('load', function() {
+        document.querySelector('.critical-content').style.opacity = '1';
+      });
+    </script>
   </body>
 </html>
