@@ -43,6 +43,23 @@
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="./Resources/logo.png" fetchpriority="high">
+    <!-- Header hide-on-scroll styles -->
+    <style>
+      header.critical-content {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        transition: transform 0.25s ease-in-out, box-shadow 0.25s;
+        will-change: transform;
+        background: var(--background, #fff);
+      }
+      header.critical-content.hide {
+        transform: translateY(-100%);
+      }
+      header.critical-content.show {
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body>
     <!-- Header -->
@@ -54,12 +71,6 @@
         <img src="./Resources/logo.png" alt="Taji Eats Logo" loading="eager" width="50" height="50">
       </div>
     </a>
-          <!-- <a href="index.html" class="logo">
-            <div class="logo-placeholder"> -->
-              <!-- Logo loads immediately -->
-              <!-- <img src="./Resources/logo.png" alt="Taji Eats Logo" loading="eager" />
-            </div>
-          </a> -->
           <h1>Taji Three in One</h1>
         </div>
 
@@ -569,6 +580,7 @@
       // Mobile menu toggle
       document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
         document.querySelector('nav ul').classList.toggle('show');
+        document.querySelector('header.critical-content').classList.remove('hide');
       });
 
       // Scroll animation for fade-in elements
@@ -615,6 +627,30 @@
       
       // Start auto-scroll on page load
       startAutoScroll();
+
+      // Hide header on scroll down, show on scroll up
+      (function() {
+        const header = document.querySelector('header.critical-content');
+        if (!header) return;
+        let lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+        let ticking = false;
+
+        window.addEventListener('scroll', function() {
+          const current = window.pageYOffset || document.documentElement.scrollTop;
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              if (current > lastScroll + 10 && current > header.offsetHeight) {
+                header.classList.add('hide');
+              } else if (current < lastScroll - 10) {
+                header.classList.remove('hide');
+              }
+              lastScroll = current;
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      })();
     </script>
   </body>
 
